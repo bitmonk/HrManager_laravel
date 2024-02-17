@@ -56,10 +56,30 @@
         </div>
 
         <!-- Nav Item - Profile -->
+        <li class="nav-item {{ Nav::isRoute('punch') }}">
+            <a class="nav-link" href="{{ route('punch') }}">
+                <i class="fa-regular fa-keyboard"></i>
+                <span>{{ __('Punch') }}</span>
+            </a>
+        </li>
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link" href="{{ route('profile') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Profile') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item {{ Nav::isRoute('users') }}">
+            <a class="nav-link" href="{{ route('users') }}">
+                <i class="fa-solid fa-user-group"></i>
+                <span>{{ __('Users') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item {{ Nav::isRoute('tasks') }}">
+            <a class="nav-link" href="{{ route('tasks') }}">
+                <i class="fas fa-fw fa-tasks"></i>
+                <span>{{ __('Tasks') }}</span>
             </a>
         </li>
 

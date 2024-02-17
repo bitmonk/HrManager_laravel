@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\PunchController;
+use App\Http\Controllers\TasksController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +27,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
+Route::post('/tasks', [TasksController::class, 'store'])->name('taskstore');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
+
+Route::get('/punch', [PunchController::class, 'index'])->name('punch');
+Route::get('/users', [UsersController::class, 'index'])->name('users');
+
 
 Route::get('/about', function () {
     return view('about');
