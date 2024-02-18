@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('main-content')
-PUNCHIN
+test
 @endsection
