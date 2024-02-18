@@ -79,6 +79,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="tab3" data-toggle="tab" href="#form3">Status</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab4" data-toggle="tab" href="#form4">Payments</a>
+            </li>
             <!-- Add more tabs as needed -->
         </ul>
 
@@ -94,6 +97,10 @@
             <div class="tab-pane fade" id="form3">
                 @include('forms.status') <!-- Include your form partial for Tab 2 -->
             </div>
+            <div class="tab-pane fade" id="form4">
+                @include('forms.payment') <!-- Include your form partial for Tab 2 -->
+            </div>
+
 
             <!-- Add more form partials as needed -->
 

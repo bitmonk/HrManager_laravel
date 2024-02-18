@@ -50,7 +50,7 @@
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="zipcode">Zip Code</label>
-                                <input type="password" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code">
+                                <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code">
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -121,7 +121,7 @@
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="zipcode">Zip Code</label>
-                                <input type="password" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code">
+                                <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code">
                             </div>
                         </div>
                         <div class="col-lg-4">
