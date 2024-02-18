@@ -13,50 +13,29 @@
 
                 <input type="hidden" name="_method" value="PUT">
 
-                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <h6 class="heading-small text-muted mb-4">Bank information</h6>
 
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="name">Name<span class="small text-danger">*</span></label>
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
+                                <label class="form-control-label" for="name">Bank Name<span class="small text-danger">*</span></label>
+                                <input type="text" id="name" class="form-control" name="name" placeholder="Bank Name">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="last_name">Last name</label>
-                                <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" value="{{ old('last_name', Auth::user()->last_name) }}">
+                                <label class="form-control-label" for="last_name">Account Name<span class="small text-danger">*</span></label>
+                                <input type="text" id="accName" class="form-control" name="last_name" placeholder="Account Name">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-10">
                             <div class="form-group">
-                                <label class="form-control-label" for="email">Email address<span class="small text-danger">*</span></label>
-                                <input type="email" id="email" class="form-control" name="email" placeholder="example@example.com" value="{{ old('email', Auth::user()->email) }}">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="current_password">Current password</label>
-                                <input type="password" id="current_password" class="form-control" name="current_password" placeholder="Current password">
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="new_password">New password</label>
-                                <input type="password" id="new_password" class="form-control" name="new_password" placeholder="New password">
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="confirm_password">Confirm password</label>
-                                <input type="password" id="confirm_password" class="form-control" name="password_confirmation" placeholder="Confirm password">
+                                <label class="form-control-label" for="accNo">Account Number<span class="small text-danger">*</span></label>
+                                <input type="text" id="accNo" class="form-control" name="accNo" placeholder="Your Account Numeber">
                             </div>
                         </div>
                     </div>
