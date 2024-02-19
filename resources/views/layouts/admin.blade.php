@@ -84,6 +84,13 @@
             </a>
         </li>
 
+        <li class="nav-item {{ Nav::isRoute('leave') }}">
+            <a class="nav-link" href="{{ route('leave') }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>{{ __('Apply for Leave') }}</span>
+            </a>
+        </li>
+
         <!-- Nav Item - About -->
         <li class="nav-item {{ Nav::isRoute('about') }}">
             <a class="nav-link" href="{{ route('about') }}">

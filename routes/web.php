@@ -44,3 +44,5 @@ Route::get('/about', function () {
 // for punchin and punchout
 Route::post('/punch-in', 'PunchInController@punchIn')->name('punch.in');
 Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out');
+
+Route::get('/leave', 'LeaveController@index')->name('leave');
