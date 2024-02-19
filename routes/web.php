@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+    
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -39,3 +39,8 @@ Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+
+// for punchin and punchout
+Route::post('/punch-in', 'PunchInController@punchIn')->name('punch.in');
+Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out');

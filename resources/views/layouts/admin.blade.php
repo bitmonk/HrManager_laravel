@@ -62,6 +62,7 @@
                 <span>{{ __('Punch') }}</span>
             </a>
         </li>
+
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link" href="{{ route('profile') }}">
                 <i class="fas fa-fw fa-user"></i>
