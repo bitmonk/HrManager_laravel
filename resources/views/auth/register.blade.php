@@ -23,64 +23,60 @@
                                         </ul>
                                     </div>
                                 @endif
-                                <link rel="stylesheet" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
 
-                                <form method="POST" action="{{ route('register') }}" class="user">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <!DOCTYPE html>
+                                <html lang="en">
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                                    <title>Document</title>
+                                    <link rel="stylesheet" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required autofocus>
+                                </head>
+                                <body>
+
+
+                                    <form method="POST" action="{{ route('register') }}" class="user">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="name" placeholder="{{ __('Name') }}" value="{{ old('name') }}" required autofocus>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') }}" required>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
+                                            <span toggle="#password" class="fa-regular fa-eye-slash field-icon toggle-password"></span>                                    </div>
+    
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
+                                            <span toggle="#password_confirmation" class="fa-regular fa-eye-slash field-icon toggle-password"></span>
+                                        </div>
+    
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                {{ __('Register') }}
+                                            </button>
+                                        </div>
+                                    </form>
+                                   
+    
+                                    <hr>
+    
+                                    <div class="text-center">
+                                        <a class="small" href="{{ route('login') }}">
+                                            {{ __('Already have an account? Login!') }}
+                                        </a>
                                     </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') }}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
-                                        <span toggle="#password" class="fa-regular fa-eye-slash field-icon toggle-password"></span>                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
-                                        <span toggle="#password_confirmation" class="fa-regular fa-eye-slash field-icon toggle-password"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            {{ __('Register') }}
-                                        </button>
-                                    </div>
-                                </form>
-                               
-
-                                <hr>
-
-                                <div class="text-center">
-                                    <a class="small" href="{{ route('login') }}">
-                                        {{ __('Already have an account? Login!') }}
-                                    </a>
                                 </div>
-
-                                <script>
-                                    document.querySelectorAll('.toggle-password').forEach(item => {
-                                        item.addEventListener('click', function () {
-                                            const passwordInput = document.querySelector(this.getAttribute('toggle'));
-                                            if (passwordInput.type === 'password') {
-                                                passwordInput.type = 'text';
-                                                this.classList.remove('fa-eye-slash');
-                                                this.classList.add('fa-eye');
-                                            } else {
-                                                passwordInput.type = 'password';
-                                                this.classList.remove('fa-eye');
-                                                this.classList.add('fa-eye-slash');
-                                            }
-                                        });
-                                    });
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -88,5 +84,26 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
+    
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(item => {
+            item.addEventListener('click', function () {
+                const passwordInput = document.querySelector(this.getAttribute('toggle'
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                } else {
+                    passwordInput.type = 'password';
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                }
+            });
+        });
+    </script>
+    
+                                    
+                                </body>
+                                </html>
+                                
