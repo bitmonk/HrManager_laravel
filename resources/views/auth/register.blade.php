@@ -23,6 +23,7 @@
                                         </ul>
                                     </div>
                                 @endif
+                                <link rel="stylesheet" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
 
                                 <form method="POST" action="{{ route('register') }}" class="user">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -41,10 +42,11 @@
 
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
-                                    </div>
+                                        <span toggle="#password" class="fa-regular fa-eye-slash field-icon toggle-password"></span>                                    </div>
 
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
+                                        <span toggle="#password_confirmation" class="fa-regular fa-eye-slash field-icon toggle-password"></span>
                                     </div>
 
                                     <div class="form-group">
@@ -53,6 +55,7 @@
                                         </button>
                                     </div>
                                 </form>
+                               
 
                                 <hr>
 
@@ -61,6 +64,23 @@
                                         {{ __('Already have an account? Login!') }}
                                     </a>
                                 </div>
+
+                                <script>
+                                    document.querySelectorAll('.toggle-password').forEach(item => {
+                                        item.addEventListener('click', function () {
+                                            const passwordInput = document.querySelector(this.getAttribute('toggle'));
+                                            if (passwordInput.type === 'password') {
+                                                passwordInput.type = 'text';
+                                                this.classList.remove('fa-eye-slash');
+                                                this.classList.add('fa-eye');
+                                            } else {
+                                                passwordInput.type = 'password';
+                                                this.classList.remove('fa-eye');
+                                                this.classList.add('fa-eye-slash');
+                                            }
+                                        });
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>

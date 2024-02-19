@@ -33,6 +33,8 @@
 
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
+                                        <i class="fa-regular fa-eye-slash"></i>
+
                                     </div>
 
                                     <div class="form-group">
