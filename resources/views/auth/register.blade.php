@@ -31,8 +31,9 @@
                                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                                     <meta http-equiv="X-UA-Compatible" content="ie=edge">
                                     <title>Document</title>
-                                    <link rel="stylesheet" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css
-
+                                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+                                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+                                    
                                 </head>
                                 <body>
 
@@ -48,17 +49,32 @@
                                             <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Last Name') }}" value="{{ old('last_name') }}" required>
                                         </div>
     
-                                        <div class="form-group">
+                                        <div class="form-group">   
                                             <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required>
                                         </div>
     
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
-                                            <span toggle="#password" class="fa-regular fa-eye-slash field-icon toggle-password"></span>                                    </div>
-    
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
-                                            <span toggle="#password_confirmation" class="fa-regular fa-eye-slash field-icon toggle-password"></span>
+                                        <div class="container mt-4">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control form-control-user" name="password" id="password1" placeholder="Password" required>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text eye-icon">
+                                                            <i class="far fa-eye-slash" id="togglePassword1"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <input type="password" class="form-control form-control-user" name="password" id="password2" placeholder=" ComfirmPassword" required>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text eye-icon">
+                                                            <i class="far fa-eye-slash" id="togglePassword2"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
     
                                         <div class="form-group">
@@ -86,24 +102,22 @@
     </div>
     @endsection
     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        document.querySelectorAll('.toggle-password').forEach(item => {
-            item.addEventListener('click', function () {
-                const passwordInput = document.querySelector(this.getAttribute('toggle'
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    this.classList.remove('fa-eye-slash');
-                    this.classList.add('fa-eye');
+        $(document).ready(function() {
+            $('.eye-icon').click(function() {
+                var $passwordInput = $(this).closest('.input-group').find('input');
+                if ($passwordInput.attr('type') === 'password') {
+                    $passwordInput.attr('type', 'text');
+                    $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
                 } else {
-                    passwordInput.type = 'password';
-                    this.classList.remove('fa-eye');
-                    this.classList.add('fa-eye-slash');
+                    $passwordInput.attr('type', 'password');
+                    $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
                 }
             });
         });
     </script>
-    
-                                    
-                                </body>
-                                </html>
+                                   
+</body>
+</html>
                                 

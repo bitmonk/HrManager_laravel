@@ -61,6 +61,18 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .password-group {
+    position: relative;
+}
+
+.field-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
         </style>
     </head>
     <body>
