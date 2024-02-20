@@ -7,6 +7,10 @@ use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LeaveController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,4 +49,8 @@ Route::get('/about', function () {
 Route::post('/punch-in', 'PunchInController@punchIn')->name('punch.in');
 Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out');
 
-Route::get('/leave', 'LeaveController@index')->name('leave');
+Route::get('/leave', [LeaveController::class, 'index'])->name('leave');
+Route::post('/leave', [LeaveController::class, 'apply'])->name('leave.apply');
+
+Route::get('/leave-admin', [LeaveController::class, 'index'])->name('leave-admin');
+Route::post('/leave-admin', [LeaveController::class, 'apply'])->name('leave-admin.apply');
