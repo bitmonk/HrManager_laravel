@@ -1,5 +1,6 @@
 @extends('layouts.auth')
 
+
 @section('main-content')
 <div class="container">
     <div class="row justify-content-center">
@@ -7,16 +8,19 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-<div class="col-lg-6 d-none d-lg-block">
-    <img src="uno.png" alt="frrfgssf" style="width: 500px;height:300px">
-</div>
+                        <div class="col-lg-6 d-none d-lg-block" style="position: relative;">
+                            <img src="https://unotechno.com/wp-content/uploads/2023/09/alter-logo-1.png" alt="Logo" style="width: 500px; height: 300px;">
+                            <div class="logo-overlay"></div>
+                        </div>
+                        
+                        
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">{{ __('Register') }}</h1>
                                 </div>
 
-                                @if ($errors->any())
+                               @if ($errors->any())
                                     <div class="alert alert-danger border-left-danger" role="alert">
                                         <ul class="pl-4 my-2">
                                             @foreach ($errors->all() as $error)
@@ -35,7 +39,15 @@
                                     <title>Document</title>
                                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
                                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-                                    
+                                    <Style>.logo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 550px; /* Adjust width to match the image */
+    height: 600px; /* Adjust height to match the image */
+    background-color: rgba(0, 0, 255, 0.5); /* Semi-transparent blue */
+}
+</Style>
                                 </head>
                                 <body>
 
