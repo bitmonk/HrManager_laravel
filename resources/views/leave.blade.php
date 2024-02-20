@@ -44,7 +44,7 @@
                     @if($leave->user_id === auth()->id())
 
                         <tr>
-                            <td>{{ $leave->user->name }}</td>
+                            <td>{{$leave->user->name }}</td>
                             <td>{{$leave->reason}}</td>
                             <td>{{$leave->from}}</td>
                             <td>{{$leave->till}}</td>

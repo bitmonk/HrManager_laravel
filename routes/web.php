@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\LeaveAdminController;
+
+
 
 
 
@@ -47,10 +50,13 @@ Route::get('/about', function () {
 
 // for punchin and punchout
 Route::post('/punch-in', 'PunchInController@punchIn')->name('punch.in');
-Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out');
+Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out'); //using string syntax
 
-Route::get('/leave', [LeaveController::class, 'index'])->name('leave');
+Route::get('/leave', [LeaveController::class, 'index'])->name('leave');// using array syntax
 Route::post('/leave', [LeaveController::class, 'apply'])->name('leave.apply');
 
-Route::get('/leave-admin', [LeaveController::class, 'index'])->name('leave-admin');
-Route::post('/leave-admin', [LeaveController::class, 'apply'])->name('leave-admin.apply');
+Route::get('/leave-admin', [LeaveAdminController::class, 'index'])->name('leave-admin');
+// Route::post('/leave-admin', [LeaveController::class, 'apply'])->name('leave-admin.apply');
+
+Route::post('/leave-admin/approve/{id}', [LeaveAdminController::class, 'approve'])->name('leave-admin-approve');
+Route::post('/leave-admin/reject/{id}', [LeaveAdminController::class, 'reject'])->name('leave-admin-reject');
