@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bank_details', function (Blueprint $table) {
+        Schema::create('addresss', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('u_id');
-            $table->string('bank_name',100);
-            $table->string('account_name',100);
-            $table->string('account_number',100);
+            $table->string('district',555);
+            $table->string('city',255);
+            $table->string('tole',255);
+            $table->string('ward_no');
+            $table->string('zipcode',15);
+            $table->string('zone',255);
+            $table->enum('type',['Temporary','Permanent']);
         });
     }
 
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bank_details');
+        Schema::dropIfExists('addresss');
     }
 };

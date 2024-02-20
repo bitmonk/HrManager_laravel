@@ -19,17 +19,15 @@ return new class extends Migration
             $table->string('email',50)->unique();
             $table->string('phone1',11)->nullable();
             $table->string('phone2',11)->nullable();
-            $table->integer('blood_group_id')->nullable();
+            $table->foreignId('blood_group_id')->constrained('blood_groups')->nullable();
             $table->string('health_condition',255)->nullable();
-            $table->integer('position_id')->nullable();
-            $table->integer('level_id')->nullable();
+            $table->foreignId('position_id')->constrained('positions')->nullable();
+            $table->foreignId('level_id')->constrained('levels')->nullable();
             $table->binary('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('join_date')->default(now());
-            
-
         });
     }
 
