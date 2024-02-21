@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('u_id');
+            $table->unsignedBigInteger('u_id');
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('duration_months');
-            $table->date('renewed_date');
+            $table->date('renewed_date')->nullable();
         });
     }
 

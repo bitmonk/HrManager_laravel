@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('salarys', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('u_id');
+            $table->unsignedBigInteger('u_id');
             $table->string('salary_type');
             $table->float('salary');
             
