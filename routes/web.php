@@ -37,6 +37,8 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
 Route::post('/tasks', [TasksController::class, 'store'])->name('taskstore');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
+Route::put('/additionalTem', 'ProfileController@additionalTem')->name('additional.temp');
+Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additional.per');
 
 
 Route::get('/punch', [PunchController::class, 'index'])->name('punch');

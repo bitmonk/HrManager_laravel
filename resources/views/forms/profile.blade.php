@@ -58,16 +58,16 @@
                     <div class="row">
                         <div class="col-lg-4 mb-5">
                         <label for="bloodGroup" class="form-control-label">Select Blood Group:</label>
-                        <select class="form-control" id="bloodGroup" aria-label="Select Blood Group">
+                        <select class="form-control" name="bloodGroup" id="bloodGroup" aria-label="Select Blood Group">
                             <option selected disabled>Select Blood Group</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
+                            <option value="1">A+</option>
+                            <option value="5">A-</option>
+                            <option value="2">B+</option>
+                            <option value="6">B-</option>
+                            <option value="3">AB+</option>
+                            <option value="7">AB-</option>
+                            <option value="4">O+</option>
+                            <option value="8">O-</option>
                         </select>
                     </div>
                     <div class="col-lg-8">

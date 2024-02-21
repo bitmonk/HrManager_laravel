@@ -85,5 +85,9 @@ class User extends Authenticatable
         return $this->hasMany(PunchIn::class);
     }
     
+    public function address()
+    {
+        return $this->hasOne(Address::class, 'u_id', 'id');
+    }
 
 }
