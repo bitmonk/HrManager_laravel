@@ -25,6 +25,7 @@
                 @foreach($leaveRequests as $leave)
 
                     <tr>
+                        
                             <td>{{ $leave->user->name}}</td>
                             <td>{{$leave->reason}}</td>
                             <td>{{$leave->from}}</td>

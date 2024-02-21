@@ -35,7 +35,7 @@ class LeaveController extends Controller
 
         // Create a new leave request record in the database
         $leave = new Leave();
-        $leave->user_id = auth()->user()->id; // Assuming you're using authentication
+        $leave->user_id = auth()->user()->id; 
         $leave->reason = $validatedData['reason'];
         $leave->from = $validatedData['from'];
         $leave->till = $validatedData['till'];
