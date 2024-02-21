@@ -12,13 +12,24 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * Indicates if the model's created_at timestamps are not used.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'email', 'password',
+        'name', 'last_name', 'email', 'password','date_of_birth','phone1','phone2','blood_group_id','health_condition','position_id','level_id','image','join_date',
+
     ];
+
+    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -67,5 +78,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+
+    public function punchIns()
+    {
+        return $this->hasMany(PunchIn::class);
+    }
+    
 
 }

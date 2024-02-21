@@ -3,6 +3,12 @@
 @section('main-content')
     <div class="container mt-4">
         <h2 class="mb-4">Create Task</h2>
+        
+        @if(session('success'))
+        <div class="alert alert-success">
+        {{ session('success') }}
+         </div>
+        @endif
         <form action="{{ route('taskstore') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -30,13 +36,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="assigned_person">Assign Person:</label>
+                <label for="assigned_person">Assign Person :</label>
                 <select class="form-control" id="assigned_person" name="assigned_person" required>
-                      <option value="superadmin">Super Admin</option>
-                    <option value="departmentadmin">DepartmentAdmin</option>
-                    <option value="teamlead">Team Lead</option>
-                </select>  
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
             </div>
+            
             <button type="submit" class="btn btn-primary btn-sm">Create Task</button>
         </form>
 
@@ -44,11 +51,11 @@
 
         <h2 class="mb-4">Task List</h2>
         <ul class="list-group">
-            @forelse($tasks as $task)
+            {{-- @forelse($tasks as $task)
                 <li class="list-group-item">{{ $task->task }} - {{ $task->description }}</li>
             @empty
                 <li class="list-group-item">No tasks yet.</li>
-            @endforelse
+            @endforelse --}}
         </ul>
     </div>
 @endsection
