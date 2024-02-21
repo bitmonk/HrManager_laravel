@@ -60,3 +60,4 @@ Route::get('/leave-admin', [LeaveAdminController::class, 'index'])->name('leave-
 
 Route::post('/leave-admin/approve/{id}', [LeaveAdminController::class, 'approve'])->name('leave-admin-approve');
 Route::post('/leave-admin/reject/{id}', [LeaveAdminController::class, 'reject'])->name('leave-admin-reject');
+
