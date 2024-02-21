@@ -79,4 +79,11 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
+
+    public function punchIns()
+    {
+        return $this->hasMany(PunchIn::class);
+    }
+    
+
 }

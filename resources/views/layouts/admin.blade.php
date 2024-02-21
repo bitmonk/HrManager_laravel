@@ -62,6 +62,7 @@
                 <span>{{ __('Punch') }}</span>
             </a>
         </li>
+
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link" href="{{ route('profile') }}">
                 <i class="fas fa-fw fa-user"></i>
@@ -80,6 +81,13 @@
             <a class="nav-link" href="{{ route('tasks') }}">
                 <i class="fas fa-fw fa-tasks"></i>
                 <span>{{ __('Tasks') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item {{ Nav::isRoute('leave') }}">
+            <a class="nav-link" href="{{ route('leave') }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>{{ __('Apply for Leave') }}</span>
             </a>
         </li>
 
