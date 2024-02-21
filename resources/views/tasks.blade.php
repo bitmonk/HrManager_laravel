@@ -31,7 +31,11 @@
             </div>
             <div class="form-group">
                 <label for="assigned_person">Assign Person:</label>
-                <input type="text" class="form-control" id="assigned_person" name="assigned_person" required>
+                <select class="form-control" id="assigned_person" name="assigned_person" required>
+                      <option value="superadmin">Super Admin</option>
+                    <option value="departmentadmin">DepartmentAdmin</option>
+                    <option value="teamlead">Team Lead</option>
+                </select>  
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Create Task</button>
         </form>
