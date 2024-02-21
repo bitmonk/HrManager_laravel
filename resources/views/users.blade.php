@@ -1,25 +1,35 @@
 @extends('layouts.admin')
 
 @section('main-content')
-<div class="container mt-4">
-        <h2>Users List</h2>
+<div class="container">
+    <h2>User List</h2>
 
-        <ul class="list-group">
-            @forelse($users as $user)
-                <li class="list-group-item">
-                    <strong>{{ $user->name }}</strong>
-                    <br>
-                    Role: {{ $user->role }}
-                    <br>
-                    Position: {{ $user->position }}
-                    <br>
-                    Salary: ${{ $user->salary }}
-                    <br>
-                </li>
-            @empty
-                <li class="list-group-item">No users found.</li>
-            @endforelse
-        </ul>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Type</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+                <tr>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->phone }}</td>
+                    <td>{{ $user->position }}</td>
+                    <td>{{ $user->salary }}</td>
+                    <td>{{ $user->type }}</td>
+                    <td>{{ $user->status }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection
 

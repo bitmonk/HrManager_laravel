@@ -22,6 +22,7 @@
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
 </head>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->

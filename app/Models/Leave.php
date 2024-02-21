@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Leave extends Model
 {
      // Define the table associated with the model
-     protected $table = 'leave';
+     protected $table = 'leaves';
 
      // Define fillable attributes
      protected $fillable = [
