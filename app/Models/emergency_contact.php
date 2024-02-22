@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class emergency_contact extends Model
 {
+
     use HasFactory;
     /**
      * Indicates if the model's created_at timestamps are not used.
@@ -14,4 +15,8 @@ class emergency_contact extends Model
      * @var bool
      */
     public $timestamps = false;
+    
+    protected $fillable = ['u_id', 'name', 'relation', 'phone1', 'phone2'];
+    
+
 }
