@@ -22,6 +22,7 @@
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
 </head>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -37,7 +38,6 @@
             <div class="sidebar-brand-text mx-3">HRM</div>
         </a>
         
-
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
@@ -63,6 +63,7 @@
                 <span>{{ __('Punch') }}</span>
             </a>
         </li>
+
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link" href="{{ route('profile') }}">
                 <i class="fas fa-fw fa-user"></i>
@@ -84,11 +85,18 @@
             </a>
         </li>
 
+        <li class="nav-item {{ Nav::isRoute('leave') }}">
+            <a class="nav-link" href="{{ route('leave') }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>{{ __('Apply for Leave') }}</span>
+            </a>
+        </li>
+
         <!-- Nav Item - About -->
         <li class="nav-item {{ Nav::isRoute('about') }}">
             <a class="nav-link" href="{{ route('about') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
+                <i class="fa-solid fa-bars-progress"></i>
+                <span>{{ __('Manage') }}</span>
             </a>
         </li>
 

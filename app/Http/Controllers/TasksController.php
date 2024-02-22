@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task as ModelsTask;
+use App\Models\User;
 use Illuminate\Console\View\Components\Task;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -11,7 +13,8 @@ class TasksController extends Controller
       public function index()
     {
         $tasks = ModelsTask::all();
-        return view('tasks', compact('tasks'));
+        $users = AuthUser::all();
+        return view('tasks', compact('tasks', 'users'));
     }
 
     public function store(Request $request)
