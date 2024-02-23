@@ -14,4 +14,13 @@ class address extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'u_id','district', 'city', 'zone', 'zipcode', 'ward_no', 'tole', 'type'
+    ];
 }

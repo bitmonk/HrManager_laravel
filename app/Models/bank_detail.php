@@ -16,4 +16,12 @@ class bank_detail extends Model
      */
     public $timestamps = false;
 
+    protected $fillable = [
+        'u_id',  // Assuming 'u_id' is the user_id field
+        'account_name',
+        'account_number',
+        'bank_name',
+        // Add any other fields
+    ];
+
 }

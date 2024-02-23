@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PunchController;
 use App\Http\Controllers\TasksController;
 use App\Http\Controllers\UserController;
@@ -37,15 +38,19 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
 Route::post('/tasks', [TasksController::class, 'store'])->name('taskstore');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
+Route::put('/payment', 'ProfileController@payment')->name('payment.update');
+Route::put('/additionalTem', 'ProfileController@additionalTem')->name('additional.temp');
+Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additional.per');
+Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update');
 
 
 Route::get('/punch', [PunchController::class, 'index'])->name('punch');
 Route::get('/users', [UsersController::class, 'index'])->name('users');
+Route::get('/about', [AdminController::class, 'index'])->name('about');
 
+Route::get('/users/{id}', 'UsersController@show')->name('users.show'); // Replace UserController@show with your actual controller and method
+Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit'); // Replace UserController@edit with your actual controller and method
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
 
 
 // for punchin and punchout

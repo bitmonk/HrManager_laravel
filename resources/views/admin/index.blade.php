@@ -1,16 +1,14 @@
 @extends('layouts.admin')
 
 @section('main-content')
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ __('About') }}</h1>
 
     <div class="container">
         <ul class="nav nav-tabs" id="myTabs">
             <li class="nav-item">
-                <a class="nav-link active" id="tab1" data-toggle="tab" href="#form1">Profile</a>
+                <a class="nav-link active" id="tab1" data-toggle="tab" href="#form1">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="tab2" data-toggle="tab" href="#form2">Additional Information</a>
+                <a class="nav-link" id="tab2" data-toggle="tab" href="#form2">Tasks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="tab3" data-toggle="tab" href="#form3">Status</a>
