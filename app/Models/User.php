@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\position;
 use App\Models\address;
+use App\Models\level;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -110,6 +111,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(emergency_contact::class, 'u_id');
     }
-
+    public function level()
+    {
+        return $this->belongsTo(level::class, 'level_id');
+    }
 
 }
