@@ -43,8 +43,8 @@
                                 Name: {{$emergencyContactName}}, Relation: {{$emergencyContactRelation}}, Phone Number: {{$emergencyContactPhone}}
                             </li>
                             <li class="list-group-item"><strong>Level:</strong> {{$levelName}}</li>
-                            <li class="list-group-item"><strong>Salary Type:</strong> {{$user->salary_type}}</li>
-                            <li class="list-group-item"><strong>Salary Amount:</strong> {{$user->salary_amount}}</li>
+                            <li class="list-group-item"><strong>Salary Type:</strong> {{$salaryType}}</li>
+                            <li class="list-group-item"><strong>Salary Amount:</strong> {{$amount}}</li>
                             <!-- Add more personal details as needed -->
                         </ul>
                     </div>
