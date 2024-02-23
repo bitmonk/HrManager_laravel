@@ -95,8 +95,8 @@
         <!-- Nav Item - About -->
         <li class="nav-item {{ Nav::isRoute('about') }}">
             <a class="nav-link" href="{{ route('about') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
+                <i class="fa-solid fa-bars-progress"></i>
+                <span>{{ __('Manage') }}</span>
             </a>
         </li>
 

@@ -8,7 +8,7 @@
 
         <div class="card-body">
 
-            <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
+            <form method="POST" action="{{ route('payment.update') }}" autocomplete="off">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <input type="hidden" name="_method" value="PUT">
@@ -19,14 +19,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="name">Bank Name<span class="small text-danger">*</span></label>
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Bank Name">
+                                <label class="form-control-label" for="b_name">Bank Name<span class="small text-danger">*</span></label>
+                                <input type="text" id="b_name" class="form-control" name="b_name" placeholder="Bank Name">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="last_name">Account Name<span class="small text-danger">*</span></label>
-                                <input type="text" id="accName" class="form-control" name="last_name" placeholder="Account Name">
+                                <label class="form-control-label" for="accName">Account Name<span class="small text-danger">*</span></label>
+                                <input type="text" id="accName" class="form-control" name="acc_name" placeholder="Account Name">
                             </div>
                         </div>
                     </div>
@@ -34,8 +34,8 @@
                     <div class="row">
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label class="form-control-label" for="accNo">Account Number<span class="small text-danger">*</span></label>
-                                <input type="text" id="accNo" class="form-control" name="accNo" placeholder="Your Account Numeber">
+                                <label class="form-control-label" for="acc_no">Account Number<span class="small text-danger">*</span></label>
+                                <input type="text" id="acc_no" class="form-control" name="acc_no" placeholder="Your Account Numeber">
                             </div>
                         </div>
                     </div>
