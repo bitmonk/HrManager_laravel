@@ -26,23 +26,26 @@
                             <li class="list-group-item"><strong>Health Condition:</strong> {{$user->health_condition}}</li>
                             <li class="list-group-item">
                                 <strong>Permanent Address:</strong> 
-                                {{$user->$permanentAddress->city}}, 
-                                {{$permanentAddress->street}}, 
-                                {{$permanentAddress->district}}, 
-                                {{$permanentAddress->zipcode}}
+                                {{$user->permanentAddress->city}}, 
+                                {{$user->permanentAddress->street}}, 
+                                {{$user->permanentAddress->district}}, 
+                                {{$user->permanentAddress->zipcode}}, 
                             </li>
                             <li class="list-group-item">
                                 <strong>Temporary Address:</strong> 
-                                {{$temporaryAddress->city}}, {{$temporaryAddress->street}}, {{$temporaryAddress->district}}, {{$temporaryAddress->zipcode}}
+                                {{$city}}, 
+                                {{$street}},
+                                 {{$district}}, 
+                                 {{$zipcode}}
                             </li>
-                            {{-- <li class="list-group-item">
+                            <li class="list-group-item">
                                 <strong>Emergency Contact:</strong> 
-                                Name: {{$emergency->name}}, Relation: {{$emergency->relation}}, Phone Number: {{$emergency->phone1}}
+                                Name: {{$emergencyContactName}}, Relation: {{$emergencyContactRelation}}, Phone Number: {{$emergencyContactPhone}}
                             </li>
-                            <li class="list-group-item"><strong>Level:</strong> {{$user->level}}</li>
+                            <li class="list-group-item"><strong>Level:</strong> {{$levelName}}</li>
                             <li class="list-group-item"><strong>Salary Type:</strong> {{$user->salary_type}}</li>
                             <li class="list-group-item"><strong>Salary Amount:</strong> {{$user->salary_amount}}</li>
-                            <!-- Add more personal details as needed --> --}}
+                            <!-- Add more personal details as needed -->
                         </ul>
                     </div>
                 </div>
