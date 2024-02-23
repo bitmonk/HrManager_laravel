@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task as ModelsTask;
 use App\Models\User;
 use Illuminate\Console\View\Components\Task;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller

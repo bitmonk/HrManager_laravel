@@ -6,7 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Models\position;
+use App\Models\address;
+use App\Models\level;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -89,5 +91,32 @@ class User extends Authenticatable
     {
         return $this->hasOne(Address::class, 'u_id', 'id');
     }
+// User model
+    public function position()
+    {
+        return $this->belongsTo(position::class, 'position_id');
+    }
 
+    public function permanentAddress()
+    {
+        return $this->hasOne(Address::class, 'u_id')->where('type', 'permanent');
+    }
+
+    public function temporaryAddress()
+    {
+        return $this->hasOne(Address::class, 'u_id')->where('type', 'temporary');
+    }
+
+    public function emergencyContact()
+    {
+        return $this->hasOne(emergency_contact::class, 'u_id');
+    }
+    public function level()
+    {
+        return $this->belongsTo(level::class, 'level_id');
+    }
+    public function salaries()
+    {
+        return $this->hasMany(Salary::class, 'u_id');
+    }
 }
