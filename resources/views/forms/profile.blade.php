@@ -81,30 +81,42 @@
                     
                         
 
-                    <div class="row">
+                    <div class="row justify-content-center align-items-center">
                         <div class="col-lg-4">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="current_password">Current password</label>
+                            <div class="input-group focused">
+                                <label class="form-control-label" for="current_password">Current password:</label>
                                 <input type="password" id="current_password" class="form-control" name="current_password" placeholder="Current password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text toggle-password" data-target="#current_password">                                        <i class="fa-regular fa-eye-slash"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="new_password">New password</label>
+                            <div class="input-group focused">
+                                <label class="form-control-label" for="new_password">New password:</label>
                                 <input type="password" id="new_password" class="form-control" name="new_password" placeholder="New password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text toggle-password" data-target="#new_password">                                        <i class="fa-regular fa-eye-slash"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="form-group focused">
-                                <label class="form-control-label" for="confirm_password">Confirm password</label>
+                            <div class="input-group focused">
+                                <label class="form-control-label" for="confirm_password">Confirm password:</label>
                                 <input type="password" id="confirm_password" class="form-control" name="password_confirmation" placeholder="Confirm password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text toggle-password" data-target="#confirm_password">                                        <i class="fa-regular fa-eye-slash"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Button -->
-                <div class="pl-lg-4">
+                <div class="pl-lg-4 mt-5">
                     <div class="row">
                         <div class="col text-center">
                             <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -112,6 +124,29 @@
                     </div>
                 </div>
             </form>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+            
+                    togglePasswordIcons.forEach(function(icon) {
+                        icon.addEventListener('click', function() {
+                            const targetId = icon.getAttribute('data-target');
+                            const targetInput = document.querySelector(targetId);
+                            const eyeIcon = icon.querySelector('i');
+            
+                            if (targetInput.type === 'password') {
+                                targetInput.type = 'text';
+                                eyeIcon.classList.remove('fa-eye-slash');
+                                eyeIcon.classList.add('fa-eye');
+                            } else {
+                                targetInput.type = 'password';
+                                eyeIcon.classList.remove('fa-eye');
+                                eyeIcon.classList.add('fa-eye-slash');
+                            }
+                        });
+                    });
+                });
+            </script>
 
         </div>
 
