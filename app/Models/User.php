@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\position;
+
 use App\Models\address;
 use App\Models\level;
 class User extends Authenticatable
@@ -99,10 +99,7 @@ class User extends Authenticatable
         return $this->hasOne(Address::class, 'u_id', 'id');
     }
 // User model
-    public function position()
-    {
-        return $this->belongsTo(position::class, 'position_id');
-    }
+   
 
     public function permanentAddress()
     {
