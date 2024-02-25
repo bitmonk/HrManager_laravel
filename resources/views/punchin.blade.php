@@ -22,7 +22,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
-        <button id="punchInButton" type="submit" class="btn btn-primary" style="color: white; background-color: green">{{ __('Punch In') }}
+        <button id="punchInButton" type="submit" class="btn btn-primary" style="color: white; background-color: red">{{ __('Punch In') }}
             
         </button>
     </form>

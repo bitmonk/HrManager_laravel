@@ -5,7 +5,8 @@
     <h2>User List</h2>
 
     <table class="table">
-        <thead>
+        <thead style="background-color: #4e73df; color: white;">
+
             <tr>
                 <th>ID</th>
                 <th>Name</th>
