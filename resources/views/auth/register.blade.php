@@ -81,7 +81,7 @@
                                             
                                             <div class="form-group">
                                                 <div class="input-group">
-                                                    <input type="password" class="form-control form-control-user" name="password" id="password2" placeholder=" ComfirmPassword" required>
+                                                    <input type="password" class="form-control form-control-user" name="password_confirmation" id="password2" placeholder=" ComfirmPassword" required>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text eye-icon">
                                                             <i class="far fa-eye-slash" id="togglePassword2"></i>
