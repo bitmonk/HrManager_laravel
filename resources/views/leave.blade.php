@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($leaveRequests as $leave)
+                @foreach($leaveRequests->sortByDesc('created_at') as $leave)
                     @if($leave->user_id === auth()->id())
 
                         <tr>

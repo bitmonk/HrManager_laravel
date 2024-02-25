@@ -14,7 +14,7 @@
                     <th>Punch Out Time</th>
                     <th>Task Completed</th>
                 </thead>
-                @foreach($punchIns as $log)
+                @foreach($punchIns->sortByDesc('created_at') as $log)
                     <tr>
                             <td>{{ $log->user->name}}</td>
                             <td>{{$log->punch_in_time}}</td>
