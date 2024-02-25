@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\address;
 use App\Models\position;
+use App\Models\salary;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,29 @@ class UsersController extends Controller
         } else {
             $levelName = 'Unassigned';
         }
+        
+        if ($user) {
+            // Access salary information
+            $salaries = $user->salary;
+        
+            if ($salaries && $salaries->count() > 0) {
+                foreach ($salaries as $sal) {
+                    // Access salary details
+                    $amount = $sal->salary;
+                    $salaryType = $sal->salary_type; // Assuming you have a SalaryType model
+                }
+            } else {
+                $amount = 'Unassigned';
+                $salaryType = 'Unassigned';
+            }
+        } else {
+            // Handle the case where the user is not found
+            $amount = 'User not found';
+            $salaryType = 'User not found';
+        }
+        
+
+
 
     return view('admin.view', compact(
         'user',
@@ -50,7 +74,15 @@ class UsersController extends Controller
         'emergencyContactName',
         'emergencyContactRelation',
         'emergencyContactPhone',
-        'levelName'
+        'levelName',
+        'amount',
+        'salaryType'
     ));
+    }
+
+    public function edit($id){
+
+
+        return view('admin.edit');
     }
 }

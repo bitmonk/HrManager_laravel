@@ -115,5 +115,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(level::class, 'level_id');
     }
-
+    public function salaries()
+    {
+        return $this->hasMany(Salary::class, 'u_id');
+    }
 }
