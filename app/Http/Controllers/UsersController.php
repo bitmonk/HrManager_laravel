@@ -12,7 +12,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::all(); 
         return view('users', compact('users'));
     }
 
@@ -35,6 +35,7 @@ class UsersController extends Controller
         $emergencyContactPhone = $emergencyContact ? $emergencyContact->phone : null;
         $emergencyContactRelation = $emergencyContact ? $emergencyContact->relation : null;
 
+        
         if ($user->level) {
             $levelName = $user->level->level; // Replace 'name' with the actual column name in the levels table
             // Access other properties as needed

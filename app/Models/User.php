@@ -94,7 +94,7 @@ class User extends Authenticatable
 // User model
     public function position()
     {
-        return $this->belongsTo(position::class, 'position_id');
+        return $this->belongsTo(position::class, 'id');
     }
 
     public function permanentAddress()
