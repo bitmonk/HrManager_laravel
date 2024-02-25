@@ -79,4 +79,10 @@ class UsersController extends Controller
         'salaryType'
     ));
     }
+
+    public function edit($id){
+
+
+        return view('admin.edit');
+    }
 }
