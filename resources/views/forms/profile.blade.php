@@ -30,14 +30,21 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="dob">Date of Birth<span class="small text-danger">*</span></label>
+                                <input type="date" id="dob" class="form-control" name="dob" placeholder="Date of Birth" value="{{ old('dob', Auth::user()->dob) }}">
+                            </div>
+                        </div>
+                        
+
+                           <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="email">Email address<span class="small text-danger">*</span></label>
                                 <input type="email" id="email" class="form-control" name="email" placeholder="example@example.com" value="{{ old('email', Auth::user()->email) }}">
                             </div>
-                        </div>
+                          </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
