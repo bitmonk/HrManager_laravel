@@ -34,6 +34,7 @@
 
                             {{-- for approve and reject --}}
                             <td> 
+                                @if($leave->status== 'pending')
                                 <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-sm">Approve</button>
@@ -42,6 +43,9 @@
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">Reject</button>
                                 </form>
+                                @else
+                                Reviewed
+                                @endif
                             </td>
                     </tr>
                 @endforeach
