@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\position;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\position;
+
 use App\Models\address;
 use App\Models\level;
 class User extends Authenticatable
@@ -82,6 +83,7 @@ class User extends Authenticatable
     }
 
 
+
     public function punchIns()
     {
         return $this->hasMany(PunchIn::class);
@@ -94,7 +96,7 @@ class User extends Authenticatable
 // User model
     public function position()
     {
-        return $this->belongsTo(position::class, 'position_id');
+        return $this->belongsTo(position::class, 'id');
     }
 
     public function permanentAddress()

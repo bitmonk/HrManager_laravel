@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\LeaveAdminController;
-
-
-
+use App\Http\Controllers\ActivityController;
 
 
 /*
@@ -44,7 +42,6 @@ Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additiona
 Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update');
 
 
-Route::get('/punch', [PunchController::class, 'index'])->name('punch');
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', [AdminController::class, 'index'])->name('about');
 
@@ -54,6 +51,10 @@ Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit'); // R
 
 
 // for punchin and punchout
+// Route::get('/punch', [PunchInController::class, 'index'])->name('punch');
+Route::get('/punch-in', 'PunchInController@index')->name('punch');
+
+
 Route::post('/punch-in', 'PunchInController@punchIn')->name('punch.in');
 Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out'); //using string syntax
 
@@ -66,3 +67,9 @@ Route::get('/leave-admin', [LeaveAdminController::class, 'index'])->name('leave-
 Route::post('/leave-admin/approve/{id}', [LeaveAdminController::class, 'approve'])->name('leave-admin-approve');
 Route::post('/leave-admin/reject/{id}', [LeaveAdminController::class, 'reject'])->name('leave-admin-reject');
 
+
+Route::get('/activity-log','ActivityController@index')->name('activity.log');
+Route::get('/activity-log-admin','ActivityAdminController@index')->name('activity.log.admin');
+
+Route::get('/activity-log/{username}', 'ActivityController@showProfile')->name('user.profile');
+// Route::get('/user/{username}/profile', 'UserProfileController@show')->name('user.profile');
