@@ -92,16 +92,50 @@
                     <!-- Work Details Tab -->
                     <div class="tab-pane fade" id="work">
                         <div class="card-body">
-                            <h5 class="card-title mt-4">Work Details</h5>
-                            <!-- Add Work Details here -->
+                            <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="level">Level:</label>
+                                        <input type="text" class="form-control" id="level" placeholder="Enter level">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="salaryType">Salary Type:</label>
+                                        <select class="form-control" id="salaryType">
+                                            <option>Hourly</option>
+                                            <option>Monthly</option>
+                                            <option>Yearly</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="salaryAmount">Salary Amount:</label>
+                                        <input type="text" class="form-control" id="salaryAmount" placeholder="Salary">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="contractDuration">Contract Duration:</label>
+                                        <input type="text" class="form-control" id="contractDuration" placeholder="Contract Duration">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="position">Position:</label>
+                                    <input type="text" class="form-control" id="position" placeholder="Position">
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
                     <!-- Bank Details Tab -->
                     <div class="tab-pane fade" id="bank">
-                        <div class="card-body">
-                            <h5 class="card-title mt-4">Bank Details</h5>
-                            <!-- Add Bank Details here -->
+                                  <div class="form-group">
+                                    <label for="bankName">Bank Name:</label>
+                                    <input type="text" class="form-control" id="bankName" placeholder="Bank Name" value="{{$bankName}}" readonly>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="accountName">Account Name:</label>
+                                    <input type="text" class="form-control" id="accountName" placeholder="Account Name" value="{{$accountName}}" readonly>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="accountNumber">Account Number:</label>
+                                    <input type="text" class="form-control" id="accountNumber" placeholder="Account Number" value="{{$accountNumber}}" readonly>                       
                         </div>
                     </div>
 

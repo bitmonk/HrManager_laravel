@@ -64,7 +64,12 @@ class UsersController extends Controller
         }
         
 
-
+        $bankDetails = $user->bankDetails;
+        $bankName = $bankDetails ? $bankDetails->bank_name : null;
+        $accountName = $bankDetails ? $bankDetails->account_name : null;
+        $accountNumber = $bankDetails ? $bankDetails->account_number : null;
+        
+        
 
     return view('admin.view', compact(
         'user',
@@ -77,7 +82,11 @@ class UsersController extends Controller
         'emergencyContactPhone',
         'levelName',
         'amount',
-        'salaryType'
+        'salaryType',
+        'bankName',
+        'accountName',
+        'accountNumber'
+
     ));
     }
 

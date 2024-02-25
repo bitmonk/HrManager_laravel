@@ -8,7 +8,6 @@
             Create Task</a>
         </div>
         
-        
         @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -27,7 +26,7 @@
             <ul class="pl-4 my-2">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
-                @endforeach
+                @endforeach 
             </ul>
             
         </div>
