@@ -22,4 +22,5 @@ class ActivityAdminController extends Controller
     {   
 
     }
+    
 }

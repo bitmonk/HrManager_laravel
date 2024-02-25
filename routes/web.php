@@ -62,5 +62,9 @@ Route::get('/leave-admin', [LeaveAdminController::class, 'index'])->name('leave-
 Route::post('/leave-admin/approve/{id}', [LeaveAdminController::class, 'approve'])->name('leave-admin-approve');
 Route::post('/leave-admin/reject/{id}', [LeaveAdminController::class, 'reject'])->name('leave-admin-reject');
 
+
 Route::get('/activity-log','ActivityController@index')->name('activity.log');
 Route::get('/activity-log-admin','ActivityAdminController@index')->name('activity.log.admin');
+
+Route::get('/activity-log/{username}', 'ActivityController@showProfile')->name('user.profile');
+// Route::get('/user/{username}/profile', 'UserProfileController@show')->name('user.profile');

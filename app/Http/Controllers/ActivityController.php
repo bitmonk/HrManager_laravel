@@ -20,8 +20,10 @@ class ActivityController extends Controller
 
         return view('activity-log')->with('punchIns', $punchIns);
     }
-    public function show(Request $request)
-    {   
-
+    public function showProfile($username)
+    {
+        $user = User::where('name', $username)->firstOrFail();
+        $punchIns = $user->punchIns; // Fetch punch-ins directly
+        return view('activity-log-profile', ['user' => $user, 'punchIns' => $punchIns]);
     }
 }
