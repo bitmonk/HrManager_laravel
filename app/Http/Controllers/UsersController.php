@@ -22,11 +22,12 @@ class UsersController extends Controller
 
         $temporaryAddresses = $user->address()->where('type', 'temporary')->get();
 
+        $city = $district = $street = $zipcode = 'Empty';
         foreach ($temporaryAddresses as $temporaryAddress) {
-            $city = $temporaryAddress->city;
-            $district = $temporaryAddress->district;
-            $street = $temporaryAddress->tole;
-            $zipcode = $temporaryAddress->zipcode;
+            $city = optional($temporaryAddress->city)->name ?? 'Empty';
+            $district = optional($temporaryAddress->district)->name ?? 'Empty';
+            $street = optional($temporaryAddress->tole)->name ?? 'Empty';
+            $zipcode = optional($temporaryAddress->zipcode)->code ?? 'Empty';
         }
         
         $emergencyContact = $user->emergencyContact()->first(); // Use first() instead of get()
