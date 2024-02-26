@@ -121,4 +121,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Salary::class, 'u_id');
     }
+    public function bankDetails()
+    {
+        return $this->hasOne(bank_detail::class, 'u_id');
+    }
+
 }

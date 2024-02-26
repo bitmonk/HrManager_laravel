@@ -8,7 +8,6 @@
             Create Task</a>
         </div>
         
-        
         @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -27,7 +26,7 @@
             <ul class="pl-4 my-2">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
-                @endforeach
+                @endforeach 
             </ul>
             
         </div>
@@ -124,6 +123,7 @@
                     <th>Deadline:</th>
                     <th>Priority</th>
                     <th>Assigned By</th>
+                    <th>Role</th>
                     
                     
 
@@ -140,7 +140,13 @@
                         <td>{{$task->priority}}</td>
                         @foreach ($users as $user)
                         @if ($user->id==$task->u_id)
-                            <td>{{$user->name}}({{$user->position->position}})</td>
+                        <td>
+                            {{ $user->name ? $user->name : 'Not Found'}}
+                        </td>
+                        <td>
+                            {{ $user->position ? $user->position->position : 'Unassigned'}}
+                        </td>
+                        
                         @endif
                         
                         @endforeach

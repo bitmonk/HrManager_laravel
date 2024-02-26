@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="container mt-4">
-        <h2 class="mb-4">Apply for Leave FOR ADMIN </h2>
+        <h2 class="mb-4">Apply  Leave For ADMIN </h2>
         
 
         <table class="table">
@@ -35,11 +35,11 @@
                             {{-- for approve and reject --}}
                             <td> 
                                 @if($leave->status== 'pending')
-                                <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post">
+                                <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post" style="display: inline;">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-sm">Approve</button>
                                 </form>
-                                <form action="{{ route('leave-admin-reject', $leave->id) }}" method="post">
+                                <form action="{{ route('leave-admin-reject', $leave->id) }}" method="post"style="display: inline;">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">Reject</button>
                                 </form>
