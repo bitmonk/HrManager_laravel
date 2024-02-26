@@ -47,11 +47,12 @@
         <div class="form-group">
             <label for="assignedTask">Assigned Task:</label>
             <select class="form-control" id="assignedTask" name="assignedTask">
-                <option value="task1">Task 1</option>
-                <option value="task2">Task 2</option>
-                <option value="task3">Task 3</option>
+                @foreach ($tasks as $task)
+                    <option value="{{ $task->id }}">{{ $task->task_name }}</option>
+                @endforeach
             </select>
         </div>
+        
         
 
         <div class="form-group">

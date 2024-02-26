@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use App\Models\position;
 use App\Models\salary;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -127,8 +128,16 @@ class UsersController extends Controller
             $amount = 'User not found';
             $salaryType = 'User not found';
         }
+
+        $tasks = Task::all();
+        $error = "task not found!";
+        if ($tasks) {
+        } else {
+            $tasks = "Unassigned";
+        }
+
         return view('admin.edit', compact('user', 'position', 'positionId', 'levelId', 'salaryType','amount',
-        'salaryType','salaries'));
+        'salaryType','salaries', 'tasks','error'));
     }
     
 

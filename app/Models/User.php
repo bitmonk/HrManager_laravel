@@ -79,7 +79,7 @@ class User extends Authenticatable
 
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasOne(Task::class, 'u_id', 'id');
     }
 
 
