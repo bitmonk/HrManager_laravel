@@ -44,6 +44,7 @@ Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update'
 
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', [AdminController::class, 'index'])->name('about');
+Route::get('/about', [LeaveAdminController::class, 'index'])->name('about');
 
 Route::get('/users/{id}', 'UsersController@show')->name('users.show'); 
 Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit');
@@ -61,7 +62,7 @@ Route::post('/punch-out', 'PunchInController@punchOut')->name('punch.out'); //us
 Route::get('/leave', [LeaveController::class, 'index'])->name('leave');// using array syntax
 Route::post('/leave', [LeaveController::class, 'apply'])->name('leave.apply');
 
-Route::get('/leave-admin', [LeaveAdminController::class, 'index'])->name('leave-admin');
+
 // Route::post('/leave-admin', [LeaveController::class, 'apply'])->name('leave-admin.apply');
 
 Route::post('/leave-admin/approve/{id}', [LeaveAdminController::class, 'approve'])->name('leave-admin-approve');
