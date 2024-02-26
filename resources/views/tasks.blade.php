@@ -67,13 +67,7 @@
                                  <span style="color: red; font-weight: bold;"> {{ $message }} </span><br />
                              @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="photo">Photo:</label>
-                            <input type="file" class="form-control-file" id="photo" name="photo">
-                            @error('photo')
-                                 <span style="color: red; font-weight: bold;"> {{ $message }} </span><br />
-                             @enderror
-                        </div>
+                       
                         <div class="form-group">
                             <label for="deadline">Deadline:</label>
                             <input type="date" class="form-control" id="deadline" name="deadline" required>
@@ -122,15 +116,14 @@
         
         <hr class="mt-4">
         <table class="table">
-            <thead>
-                <tr>
+            <thead style="background-color: #4e73df; color: white;">
+                    <tr>
                     <th>Task Name</th>
                     <th>Description</th>
-                    <th>Photo</th>
                     <th>Deadline:</th>
-                    
                     <th>Priority</th>
                     <th>Assigned By</th>
+                    
                     
 
                 </tr>
