@@ -1,6 +1,7 @@
 <div class="card shadow mb-4">
     <table class="table">
-        <thead>
+        <thead style="background-color: #4e73df; color: white;">
+
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -18,9 +19,9 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
-                    <td>{{ $user->position }}</td>
-                    <td>{{ $user->salary }}</td>
-                    <td>{{ $user->type }}</td>
+                    <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
+                    <td>{{ $user->salary->salary }}</td>
+                    <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
                     <td>{{ $user->status }}</td>
                     <td>
                         {{-- View button --}}

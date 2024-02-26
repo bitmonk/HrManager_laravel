@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\position;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\position;
+
 use App\Models\address;
 use App\Models\level;
 class User extends Authenticatable
@@ -78,8 +79,9 @@ class User extends Authenticatable
 
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasOne(Task::class, 'u_id', 'id');
     }
+
 
 
     public function punchIns()
@@ -115,8 +117,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(level::class, 'level_id');
     }
-    public function salaries()
+    public function salary()
     {
-        return $this->hasMany(Salary::class, 'u_id');
+        return $this->hasOne(salary::class,'u_id', 'id');
     }
+    public function bankDetails()
+    {
+        return $this->hasOne(bank_detail::class, 'u_id');
+    }
+
 }

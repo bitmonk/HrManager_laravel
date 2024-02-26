@@ -8,7 +8,7 @@
                 <a class="nav-link active" id="tab1" data-toggle="tab" href="#form1">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="tab2" data-toggle="tab" href="#form2">Tasks</a>
+                <a class="nav-link" id="tab2" data-toggle="tab" href="#form2">Leave Requests</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="tab3" data-toggle="tab" href="#form3">Status</a>
@@ -24,7 +24,8 @@
                 @include('admin.users') <!-- Include your form partial for Tab 1 -->
             </div>
             <div class="tab-pane fade" id="form2">
-                @include('forms.additional') <!-- Include your form partial for Tab 2 -->
+                @include('leave-admin') <!-- Include your form partial for Tab 2 -->
+                
             </div>
             <div class="tab-pane fade" id="form3">
                 @include('forms.status') <!-- Include your form partial for Tab 2 -->

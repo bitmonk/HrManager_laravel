@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterController extends Controller 
 {
     /*
     |--------------------------------------------------------------------------
@@ -55,12 +55,13 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => [
                 'required',
+                'confirmed',
                 'string',
                 'min:8',              // Minimum length of 8 characters
                 'regex:/[A-Z]/',      // At least one uppercase letter
                 'regex:/[a-z]/',      // At least one lowercase letter
                 'regex:/[0-9]/',      // At least one number
-                'regex:/[@$!%*?&]/',  // At least one special character
+                'regex:/[@$!%*#?&]/',  // At least one special character
                 'terms' => 'required'
             ],
         ]);

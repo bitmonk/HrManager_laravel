@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class salary extends Model
 {
     use HasFactory;
+
+     /**
+     * Indicates if the model's created_at timestamps are not used.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

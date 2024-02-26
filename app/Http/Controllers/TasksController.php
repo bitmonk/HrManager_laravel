@@ -14,13 +14,36 @@ class TasksController extends Controller
     {
         $tasks = ModelsTask::all();
         $users = User::all();
+        
         return view('tasks', compact('tasks', 'users'));
     }
 
     public function store(Request $request)
     {
-        // Handle task creation logic, including file upload if needed
-        // ...
+        $validatedData = $request->validate([
+            'task' => 'required|string',
+            'description' => 'required|string',
+            'deadline' => [
+                'required',
+                'date',
+        
+            ], 
+            'photo'=>'',
+            'priority' => 'required',
+            'assigned_person' => 'required',
+        ]);
+
+
+
+        $task = new ModelsTask();
+        $task->u_id = auth()->user()->id; 
+        $task->task_name = $validatedData['task'];
+        $task->task_description = $validatedData['description'];
+        $task->deadline = $validatedData['deadline'];
+        $task->priority = $validatedData['priority'];
+        $task->person_assigned = $validatedData['assigned_person']; // Assuming default status is 'pending'
+        $task->save();
+        
 
         return redirect()->route('tasks')->with('success', 'Task created successfully');
     }
