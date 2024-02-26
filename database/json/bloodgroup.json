@@ -1,0 +1,27 @@
+[
+    {
+        "blood_group" : "A+"
+    },
+    {
+        "blood_group" : "B+"
+    },
+    {
+        "blood_group" : "AB+"
+    },
+    {
+        "blood_group" : "O+"
+    },
+    {
+        "blood_group" : "A-"
+    },
+    {
+        "blood_group" : "B-"
+    },
+    {
+        "blood_group" : "AB-"
+    },
+    {
+        "blood_group" : "O-"
+    }
+    
+]

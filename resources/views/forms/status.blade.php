@@ -19,44 +19,57 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="name">Name<span class="small text-danger">*</span></label>
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
+                                <label class="form-control-label" for="position">Current Position :</label>
+                                {{-- <div class="container">
+                                    <select class="form-control" id="dropdownOptions" aria-label="Select an Option">
+                                        <option selected disabled>Super Admin</option>
+                                        <option value="option1">Super Admin</option>
+                                        <option value="option2">Department Admin</option>
+                                        <option value="option3">Team Lead</option>
+                                        <option value="option4">Employee</option>
+                                    </select>
+                                </div> --}}
+
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="last_name">Last name</label>
-                                <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" value="{{ old('last_name', Auth::user()->last_name) }}">
+                                <label class="form-control-label" for="level">Level : </label>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label" for="email">Email address<span class="small text-danger">*</span></label>
-                                <input type="email" id="email" class="form-control" name="email" placeholder="example@example.com" value="{{ old('email', Auth::user()->email) }}">
+                                <label class="form-control-label" for="email">Join Date :</label>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="current_password">Current password</label>
-                                <input type="password" id="current_password" class="form-control" name="current_password" placeholder="Current password">
+                                <label class="form-control-label" >Contract Duration : </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group focused">
+                                <label class="form-control-label">Contract History :</label>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="new_password">New password</label>
-                                <input type="password" id="new_password" class="form-control" name="new_password" placeholder="New password">
+                                <label class="form-control-label">Time Schedule:</label>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="confirm_password">Confirm password</label>
-                                <input type="password" id="confirm_password" class="form-control" name="password_confirmation" placeholder="Confirm password">
+                                <label class="form-control-label">Salary Type :</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group focused">
+                                <label class="form-control-label">Salary Amount :</label>
                             </div>
                         </div>
                     </div>

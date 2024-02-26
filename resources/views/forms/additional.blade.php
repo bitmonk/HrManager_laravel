@@ -8,7 +8,7 @@
 
         <div class="card-body">
 
-            <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
+            <form method="POST" action="{{ route('additional.temp') }}" autocomplete="off">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <input type="hidden" name="_method" value="PUT">
@@ -79,7 +79,7 @@
     <div class="card shadow mb-4">
         <div class="card-body">
 
-            <form method="POST" action="" autocomplete="off">
+            <form method="POST" action="{{route('additional.per')}}" autocomplete="off">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <input type="hidden" name="_method" value="PUT">
@@ -153,7 +153,7 @@
     <div class="card shadow mb-4">
         <div class="card-body">
 
-            <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
+            <form method="POST" action="{{ route('emergency.update') }}" autocomplete="off">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <input type="hidden" name="_method" value="PUT">

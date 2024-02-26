@@ -12,7 +12,7 @@
             </button>
         </div>
     @endif
-
+            
     @if ($errors->any())
         <div class="alert alert-danger border-left-danger" role="alert">
             <ul class="pl-4 my-2">
@@ -27,10 +27,12 @@
 
         <div class="container">
 
-            <div class="card shadow mb-4">
-                <div class="card-profile-image mt-4">
-                    <figure class="rounded-circle avatar avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px;" data-initial="{{ Auth::user()->name[0] }}"></figure>
-                </div>
+            <div class="card-profile-image mt-4">
+                <!-- Display uploaded image -->
+                <img id="profileImage" src="path_to_default_image" alt="Uploaded Image" class="rounded-circle avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px; cursor: pointer;">
+                <!-- Hidden file input for image upload -->
+                <input type="file" id="uploadInput" accept="image/*" style="display: none;">
+            </div>
                 <div class="card-body">
 
                     <div class="row">
@@ -116,5 +118,30 @@
         $(this).tab('show');
     });
     </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script>
+       $(document).ready(function() {
+           // Trigger file input click when profile image is clicked
+           $('#profileImage').click(function() {
+               $('#uploadInput').click(); // Trigger click on file input
+           });
+   
+           // When a new image is selected, display it in the profile image area
+           $('#uploadInput').change(function() {
+               var input = this;
+               if (input.files && input.files[0]) {
+                   var reader = new FileReader();
+   
+                   reader.onload = function(e) {
+                       $('#profileImage').attr('src', e.target.result);
+                   }
+   
+                   reader.readAsDataURL(input.files[0]); // Convert to base64 string
+               }
+           });
+       });
+   </script>
+   
+    
 
 @endsection

@@ -1,0 +1,15 @@
+[
+    {
+        "position" : "Super Admin"
+    },
+    {
+        "position" : "Department Head"
+    },
+    {
+        "position" : "Team Leader"
+    },
+    {
+        "position" : "Employee"
+    }
+    
+]
