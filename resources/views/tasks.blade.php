@@ -123,6 +123,7 @@
                     <th>Deadline:</th>
                     <th>Priority</th>
                     <th>Assigned By</th>
+                    <th>Role</th>
                     
                     
 
@@ -135,12 +136,17 @@
                     <tr>
                         <td>{{$task->task_name}}</td>
                         <td>{{$task->task_description}}</td>
-                        <td></td>
                         <td>{{$task->deadline}}</td>
                         <td>{{$task->priority}}</td>
                         @foreach ($users as $user)
                         @if ($user->id==$task->u_id)
-                            <td>{{$user->name}}({{$user->position->position}})</td>
+                        <td>
+                            {{ $user->name ? $user->name : 'Not Found'}}
+                        </td>
+                        <td>
+                            {{ $user->position ? $user->position->position : 'Unassigned'}}
+                        </td>
+                        
                         @endif
                         
                         @endforeach
