@@ -45,9 +45,9 @@ Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update'
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', [AdminController::class, 'index'])->name('about');
 
-Route::get('/users/{id}', 'UsersController@show')->name('users.show'); // Replace UserController@show with your actual controller and method
-Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit'); // Replace UserController@edit with your actual controller and method
-
+Route::get('/users/{id}', 'UsersController@show')->name('users.show'); 
+Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit');
+Route::post('/users/{id}/update', 'UsersController@update')->name('users.update');
 
 
 // for punchin and punchout

@@ -20,8 +20,8 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
                     <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
-                    <td>{{ $user->salary }}</td>
-                    <td>{{ $user->type }}</td>
+                    <td>{{ $user->salary->salary }}</td>
+                    <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
                     <td>{{ $user->status }}</td>
                     <td>
                         {{-- View button --}}
