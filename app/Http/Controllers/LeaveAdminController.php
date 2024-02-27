@@ -18,8 +18,8 @@ class LeaveAdminController extends Controller
         $leaveRequest->status = 'Approved';
         
         $leaveRequest->save();
-        
-        return redirect()->route('leave-admin')->with('success', 'Leave request approved successfully.');
+
+        return redirect()->route('about')->with('success', 'Leave request approved successfully.');
     }
     
     public function reject($id){ // Accept the $id parameter here
@@ -29,6 +29,6 @@ class LeaveAdminController extends Controller
         
         $leaveRequest->save();
         
-        return redirect()->route('leave-admin')->with('success', 'Leave request rejected successfully.');
+        return redirect()->route('about')->with('success', 'Leave request rejected successfully.');
     }
 }
