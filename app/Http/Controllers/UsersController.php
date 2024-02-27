@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use App\Models\position;
 use App\Models\salary;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -43,23 +44,25 @@ class UsersController extends Controller
         } else {
             $levelName = 'Unassigned';
         }
-        
+        $amount = $salaryType = 'Unassigned';
         if ($user) {
             // Access salary information
             $salaries = $user->salary;
+            // dd($salaries);
         
-            if ($salaries && $salaries->count() > 0) {
+            if (optional($salaries)->count() > 0) {
                 foreach ($salaries as $sal) {
                     // Access salary details
-                    $amount = $sal->salary;
-                    $salaryType = $sal->salary_type; // Assuming you have a SalaryType model
+                    $amount = optional($sal)->salary;
+                    $salaryType = optional($sal)->salary_type;
                 }
             } else {
+                // Handle the null or empty condition
                 $amount = 'Unassigned';
                 $salaryType = 'Unassigned';
             }
+            
         } else {
-            // Handle the case where the user is not found
             $amount = 'User not found';
             $salaryType = 'User not found';
         }
@@ -91,9 +94,70 @@ class UsersController extends Controller
     ));
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+    
 
+        $position = $user->position ? $user->position->position : null;
 
-        return view('admin.edit');
+        $positionId = $user->position ? $user->position->id : null;
+        
+
+        $levelId = $user->level ? $user->level->id : null;
+        
+        $amount = $salaryType = 'Unassigned';
+        if ($user) {
+            // Access salary information
+            $salaries = $user->salary;
+            // dd($salaries);
+        
+            if (optional($salaries)->count() > 0) {
+                foreach ($salaries as $sal) {
+                    // Access salary details
+                    $amount = optional($sal)->salary;
+                    $salaryType = optional($sal)->salary_type;
+                }
+            } else {
+                // Handle the null or empty condition
+                $amount = 'Unassigned';
+                $salaryType = 'Unassigned';
+            }
+            
+        } else {
+            $amount = 'User not found';
+            $salaryType = 'User not found';
+        }
+
+        $tasks = Task::all();
+        $error = "task not found!";
+        if ($tasks) {
+        } else {
+            $tasks = "Unassigned";
+        }
+
+        return view('admin.edit', compact('user', 'position', 'positionId', 'levelId', 'salaryType','amount',
+        'salaryType','salaries', 'tasks','error'));
     }
+    
+
+    public function update(Request $request, $id)
+    {
+    
+        // Find the admin record from the database based on the $id
+        $admin = User::findOrFail($id);
+    
+        // Update the admin record with the form data
+        $admin->update([
+            'position_id' => $request->input('position'),
+            'level_id' => $request->input('level'),
+            // Update other fields as needed
+        ]);
+    
+        // Redirect to a success page or back to the edit form with a success message
+        return redirect()->route('users.edit', $id)->with('success', 'Admin record updated successfully');
+    }
+
+
+
 }

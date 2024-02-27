@@ -79,7 +79,7 @@ class User extends Authenticatable
 
     public function tasks()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasOne(Task::class, 'u_id', 'id');
     }
 
 
@@ -96,7 +96,7 @@ class User extends Authenticatable
 // User model
     public function position()
     {
-        return $this->belongsTo(position::class, 'id');
+        return $this->belongsTo(position::class, 'position_id');
     }
 
     public function permanentAddress()
@@ -117,9 +117,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(level::class, 'level_id');
     }
-    public function salaries()
+    public function salary()
     {
-        return $this->hasMany(Salary::class, 'u_id');
+        return $this->hasOne(salary::class,'u_id', 'id');
     }
     public function bankDetails()
     {
