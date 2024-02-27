@@ -20,7 +20,7 @@
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="b_name">Bank Name<span class="small text-danger">*</span></label>
-                                <input type="text" id="b_name" class="form-control" name="b_name" placeholder="Bank Name">
+                                <input type="text" id="b_name" class="form-control" name="b_name" placeholder="Bank Name" >
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -35,7 +35,7 @@
                         <div class="col-lg-10">
                             <div class="form-group">
                                 <label class="form-control-label" for="acc_no">Account Number<span class="small text-danger">*</span></label>
-                                <input type="text" id="acc_no" class="form-control" name="acc_no" placeholder="Your Account Numeber">
+                                <input type="text" id="acc_no" class="form-control" name="acc_no" placeholder="Your Account Numeber" >
                             </div>
                         </div>
                     </div>

@@ -33,21 +33,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
 Route::post('/tasks', [TasksController::class, 'store'])->name('taskstore');
-Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::put('/payment', 'ProfileController@payment')->name('payment.update');
 Route::put('/additionalTem', 'ProfileController@additionalTem')->name('additional.temp');
 Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additional.per');
 Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update');
 
+// Route::get('/additionalTem', 'ProfileController@additionalTempAdd')->name('additional.add');
 
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', [AdminController::class, 'index'])->name('about');
 
 Route::get('/users/{id}', 'UsersController@show')->name('users.show'); // Replace UserController@show with your actual controller and method
 Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit'); // Replace UserController@edit with your actual controller and method
-
 
 
 // for punchin and punchout
@@ -73,3 +74,7 @@ Route::get('/activity-log-admin','ActivityAdminController@index')->name('activit
 
 Route::get('/activity-log/{username}', 'ActivityController@showProfile')->name('user.profile');
 // Route::get('/user/{username}/profile', 'UserProfileController@show')->name('user.profile');
+
+Route::post('/profile','ProfileController@store')->name('profile.store');
+
+

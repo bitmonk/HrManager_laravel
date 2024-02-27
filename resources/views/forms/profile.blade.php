@@ -14,7 +14,6 @@
                 <input type="hidden" name="_method" value="PUT">
 
                 <h6 class="heading-small text-muted mb-4">User information</h6>
-
                 <div class="pl-lg-4">
                     <div class="row">
                         <div class="col-lg-6">
@@ -34,7 +33,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="dob">Date of Birth<span class="small text-danger">*</span></label>
-                                <input type="date" id="dob" class="form-control" name="dob" placeholder="Date of Birth" value="{{ old('dob', Auth::user()->dob) }}">
+                                <input type="date" id="dob" class="form-control" name="date_of_birth" placeholder="Date of Birth" value="{{ old('date_of_birth', Auth::user()->date_of_birth) }}">
                             </div>
                         </div>
                         
@@ -50,14 +49,14 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="phone1">Phone Number<span class="small text-danger">*</span></label>
-                                <input type="text" id="phone1" class="form-control" name="phone1" placeholder="+977" >
+                                <input type="text" id="phone1" class="form-control" name="phone1" placeholder="+977" value="{{ old('phone1', Auth::user()->phone1) }}" >
                             </div>
                         </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label" for="phone2">Secondary Phone Number<span class="small text-danger">*</span></label>
-                            <input type="text" id="phone2" class="form-control" name="phone2" placeholder="+977 ">
+                            <input type="text" id="phone2" class="form-control" name="phone2" placeholder="+977 " value="{{ old('phone2', Auth::user()->phone2) }}">
                         </div>
                     </div>
                     </div>
@@ -76,11 +75,12 @@
                             <option value="4">O+</option>
                             <option value="8">O-</option>
                         </select>
+                    
                     </div>
                     <div class="col-lg-8">
                         <div class="form-group">
                             <label class="form-control-label" for="health">Health Condition</label>
-                            <input type="text" id="health" class="form-control" name="health" placeholder="How are you feeling ?">
+                            <input type="text" id="health_condition" class="form-control" name="health_condition" placeholder="How are you feeling ?" value="{{ old('health_condition', Auth::user()->health_condition) }}">
                         </div>
                     </div>
 
