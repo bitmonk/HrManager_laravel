@@ -66,7 +66,6 @@ class UsersController extends Controller
             $amount = 'User not found';
             $salaryType = 'User not found';
         }
-        
 
         $bankDetails = $user->bankDetails;
         $bankName = $bankDetails ? $bankDetails->bank_name : null;
@@ -140,24 +139,42 @@ class UsersController extends Controller
         'salaryType','salaries', 'tasks','error'));
     }
     
-
     public function update(Request $request, $id)
     {
-    
-        // Find the admin record from the database based on the $id
-        $admin = User::findOrFail($id);
-    
-        // Update the admin record with the form data
-        $admin->update([
-            'position_id' => $request->input('position'),
-            'level_id' => $request->input('level'),
-            // Update other fields as needed
+        // Validate the request data
+        $request->validate([
+            'position' => 'required',
+            'level' => 'required',
+            'contractDuration' => 'required',
         ]);
     
-        // Redirect to a success page or back to the edit form with a success message
-        return redirect()->route('users.edit', $id)->with('success', 'Admin record updated successfully');
-    }
+        try {
+            // Find the admin record from the database based on the $id
+            $admin = User::findOrFail($id);
+    
+            // Update the admin record with the form data
+            $admin->update([
+                'position_id' => $request->input('position'),
+                'level_id' => $request->input('level'),
+                'contract_duration' => $request->input('contractDuration')
+            ]);
 
+            $salary = Salary::findOrFail($id);
+            $salary ->update(
+                ['u_id' => $id], // Find or create based on user id
+                [
+                    'salary_type' => $request->input('salaryType'),
+                    'salary' => $request->input('salary'),
+                ]
+            );
+            
+            
+            return redirect()->route('users.edit', $id)->with('success', 'Admin record updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('users.edit', $id)->with('error', 'Error updating admin record: ' . $e->getMessage());
+        }
+    }
+    
 
 
 }

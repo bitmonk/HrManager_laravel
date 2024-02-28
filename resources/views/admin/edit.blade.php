@@ -1,6 +1,23 @@
 @extends('layouts.admin')
 
 @section('main-content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="card shadow pb-5">
 <div class="container mt-5">
     <h2>Edit Form</h2>
@@ -25,24 +42,26 @@
         <div class="form-group">
             <label for="level">Level:</label>
             <select class="form-control" id="level" name="level">
-                <option value="1" {{ $user->level->id == 1 ? 'selected' : '' }}>Intern</option>
-                <option value="2" {{ $user->level->id == 2 ? 'selected' : '' }}>Trainee</option>
-                <option value="3" {{ $user->level->id == 3 ? 'selected' : '' }}>Junior</option>
-                <option value="4" {{ $user->level->id == 4 ? 'selected' : '' }}>Mid Level</option>
-                <option value="5" {{ $user->level->id == 5 ? 'selected' : '' }}>Senior</option>
+                <option value="1" {{ optional($user->level)->id == 1 ? 'selected' : '' }}>Intern</option>
+                <option value="2" {{ optional($user->level)->id == 2 ? 'selected' : '' }}>Trainee</option>
+                <option value="3" {{ optional($user->level)->id == 3 ? 'selected' : '' }}>Junior</option>
+                <option value="4" {{ optional($user->level)->id == 4 ? 'selected' : '' }}>Mid Level</option>
+                <option value="5" {{ optional($user->level)->id == 5 ? 'selected' : '' }}>Senior</option>
             </select>
         </div>
         
         
-        <div class="form-group">
-            <label for="salaryType">Salary Type:</label>
-            <input type="text" class="form-control" value = "{{$salaries->salary_type}}" placeholder="Salary Type">    
-        </div>
         
         <div class="form-group">
-            <label for="salary">Salary:</label>
-            <input type="text" class="form-control" id="salary" value="{{$salaries->salary}}" placeholder="Enter salary (In Rs)">
-        </div>
+    <label for="salaryType">Salary Type:</label>
+    <input type="text" class="form-control" name="salaryType" value="{{ $salaries->salary_type ?? 'Unassigned' }}" placeholder="Salary Type">    
+</div>
+
+        
+<div class="form-group">
+    <label for="salary">Salary:</label>
+    <input type="text" class="form-control" id="salary" name="salary" value="{{ $salaries->salary ?? 'Unassigned' }}" placeholder="Enter salary (In Rs)">
+</div>
 
         <div class="form-group">
             <label for="assignedTask">Assigned Task:</label>
@@ -52,8 +71,6 @@
                 @endforeach
             </select>
         </div>
-        
-        
 
         <div class="form-group">
             <label for="contractDuration">Contract Duration:</label>
