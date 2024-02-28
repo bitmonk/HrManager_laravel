@@ -20,13 +20,13 @@
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="district">District<span class="small text-danger">*</span></label>
-                                <input type="text" id="district" class="form-control" name="district" placeholder="District" value="{{ old('district', $address->district) }}">
+                                <input type="text" id="district" class="form-control" name="district" placeholder="District" value="{{ old('district', $address ? $address->district : '') }}">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="city">VDC / Municipality<span class="small text-danger">*</span></label>
-                                <input type="text" id="city" class="form-control" name="city" placeholder="City" value="{{ old('city', $address->city) }}">
+                                <input type="text" id="city" class="form-control" name="city" placeholder="City" value="{{ old('city', $address ? $address->city : '') }}">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="street">Street Address<span class="small text-danger">*</span></label>
-                                <input type="text" id="street" class="form-control" name="street" placeholder="example@example.com" value="{{ old('tole', $address->tole) }}">
+                                <input type="text" id="street" class="form-control" name="street" placeholder="example@example.com" value="{{ old('tole', $address ? $address->tole : '') }}">
                             </div>
                         </div>
                     </div>
@@ -44,19 +44,19 @@
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="ward">Ward No.<span class="small text-danger">*</span></label>
-                                <input type="text" id="current_password" class="form-control" name="ward" placeholder="Ward No." value="{{ old('ward_no', $address->ward_no) }}">
+                                <input type="text" id="current_password" class="form-control" name="ward" placeholder="Ward No." value="{{ old('ward_no', $address ? $address->ward_no : '') }}">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="zipcode">Zip Code</label>
-                                <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code" value="{{ old('zipcode', $address->zipcode) }}">
+                                <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code" value="{{ old('zipcode', $address ? $address->zipcode : '') }}">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="confirm_password">Zone</label>
-                                <input type="text" id="zone" class="form-control" name="zone" placeholder="Zone" value="{{ old('zone', $address->zone) }}" >
+                                <input type="text" id="zone" class="form-control" name="zone" placeholder="Zone" value="{{ old('zone', $address ? $address->zone : '') }}" >
                             </div>
                         </div>
                     </div>
@@ -91,14 +91,14 @@
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="district">District<span class="small text-danger">*</span></label>
-                                <input type="text" id="district" class="form-control" name="district" placeholder="District" value="{{ old('district', $address->district) }}">
+                                <input type="text" id="district" class="form-control" name="district" placeholder="District" value="{{ old('district', $address ? $address->district : '') }}">
 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="city">VDC / Municipality<span class="small text-danger">*</span></label>
-                                <input type="text" id="city" class="form-control" name="city" placeholder="City" value="{{ old('city', $address->city) }}">
+                                <input type="text" id="city" class="form-control" name="city" placeholder="City" value="{{ old('city', $address ? $address->city : '') }}">
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="street">Street Address<span class="small text-danger">*</span></label>
-                                <input type="text" id="street" class="form-control" name="street" placeholder="example@example.com" value="{{ old('tole', $address->tole) }}" >
+                                <input type="text" id="street" class="form-control" name="street" placeholder="example@example.com" value="{{ old('tole', $address ? $address->tole : '') }}">
                             </div>
                         </div>
                     </div>
@@ -116,19 +116,19 @@
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="ward">Ward No.<span class="small text-danger">*</span></label>
-                                <input type="text" id="current_password" class="form-control" name="ward" placeholder="Ward No." value="{{ old('ward_no', $address->ward_no) }}">
+                                <input type="text" id="current_password" class="form-control" name="ward" placeholder="Ward No." value="{{ old('ward_no', $address ? $address->ward_no : '') }}">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="zipcode">Zip Code</label>
-                                <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code" value="{{ old('zipcode', $address->zipcode) }}">
+                                <input type="text" id="zipcode" class="form-control" name="zipcode" placeholder="Zip Code" value="{{ old('zipcode', $address ? $address->zipcode : '') }}">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="confirm_password">Zone</label>
-                                <input type="text" id="zone" class="form-control" name="zone" placeholder="Zone" value="{{ old('zone', $address->zone) }}">
+                                <input type="text" id="zone" class="form-control" name="zone" placeholder="Zone" value="{{ old('zone', $address ? $address->zone : '') }}" >
                             </div>
                         </div>
                     </div>
@@ -166,13 +166,13 @@
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="name">Name<span class="small text-danger">*</span></label>
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', $emergency_contact->name) }}">
+                                <input type="text" id="name" class="form-control" name="name" placeholder="Name" value="{{ old('name', $emergency_contact ? $emergency_contact->name : '') }}" >
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="relation">Relation<span class="small text-danger">*</span></label>
-                                <input type="text" id="relation" class="form-control" name="relation" placeholder="Relation" value="{{ old('relation', $emergency_contact->relation) }}">
+                                <input type="text" id="relation" class="form-control" name="relation" placeholder="Relation" value="{{ old('relation', $emergency_contact ? $emergency_contact->relation : '') }}" >
                             </div>
                         </div>
                     </div>
@@ -181,13 +181,13 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="phone1">Phone No<span class="small text-danger">*</span></label>
-                                <input type="text" id="phone1" class="form-control" name="phone1" placeholder="+977 " value="{{ old('phone1', $emergency_contact->phone1) }}">
+                                <input type="text" id="phone1" class="form-control" name="phone1" placeholder="+977 " value="{{ old('phone1', $emergency_contact ? $emergency_contact->phone1 : '') }}" >
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="phone2">Secondary Phone No</label>
-                                <input type="text" id="phone2" class="form-control" name="phone2" placeholder="+977 " value="{{ old('phone2', $emergency_contact->phone2) }}">
+                                <input type="text" id="phone2" class="form-control" name="phone2" placeholder="+977 " value="{{ old('phone2', $emergency_contact ? $emergency_contact->phone2 : '') }}" >
                             </div>
                         </div>
                     </div>
