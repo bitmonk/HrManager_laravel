@@ -1,6 +1,23 @@
 @extends('layouts.admin')
 
 @section('main-content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="card shadow pb-5">
 <div class="container mt-5">
     <h2>Edit Form</h2>
@@ -54,8 +71,6 @@
                 @endforeach
             </select>
         </div>
-        
-        
 
         <div class="form-group">
             <label for="contractDuration">Contract Duration:</label>
