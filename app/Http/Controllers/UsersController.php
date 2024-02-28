@@ -151,7 +151,7 @@ class UsersController extends Controller
         $admin->update([
             'position_id' => $request->input('position'),
             'level_id' => $request->input('level'),
-            // Update other fields as needed
+            'contract_duration' => $request->input('contractDuration')
         ]);
     
         // Redirect to a success page or back to the edit form with a success message

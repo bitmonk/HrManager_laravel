@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('u_id');
+<<<<<<< HEAD
             $table->string('salaries_type');
             $table->float('salaries');
+=======
+            $table->string('salary_type');
+            $table->float('salary');
+>>>>>>> parbat
             
         });
     }
