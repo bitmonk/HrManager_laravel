@@ -23,7 +23,8 @@ class ProfileController extends Controller
 
     public function index()
     {
-        $user = User::findOrFail(Auth::user()->id);
+
+        // $user = User::findOrFail(Auth::user()->id);
 
         $user = Auth::user();
 
@@ -249,7 +250,14 @@ public function store(Request $request)
 
         try {
             $user->save();
-            return view('profile')->with('user', $user);
+
+            $address = Address::where('u_id', $user->id)->first();
+            $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
+
+
+            return view('profile')->with(['user' => $user, 'address' => $address,'emergency_contact'=>$emergency_contact]);
+
+            // return view('profile')->with('user', $user);
         } catch (\Exception $e) {
             return redirect()->back()->withError('Failed to save image: ' . $e->getMessage());
         }
