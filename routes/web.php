@@ -78,3 +78,4 @@ Route::get('/activity-log/{username}', 'ActivityController@showProfile')->name('
 Route::post('/profile','ProfileController@store')->name('profile.store');
 
 
+

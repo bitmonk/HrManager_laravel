@@ -48,7 +48,6 @@ class ProfileController extends Controller
       
     }
 
-
     public function update(Request $request)
     {
         $request->validate([
@@ -209,6 +208,8 @@ public function emergency(Request $request)
         'name' => 'required|string|max:255',
         'phone1'=>'required|numeric|digits:10',
         'phone2'=>'required|numeric|digits:10',
+        'relation'=>'required|string|max:50',
+
 
     ]);
     $user = User::findOrFail(Auth::user()->id);
