@@ -23,8 +23,12 @@
             <div class="tab-pane fade show active" id="form1">
                 @include('admin.users') <!-- Include your form partial for Tab 1 -->
             </div>
-            
-            
+
+            <div class="tab-pane fade" id="form2">
+                @include('leave-admin') 
+
+            </div>
+
             <div class="tab-pane fade" id="form3">
                 @include('forms.status') <!-- Include your form partial for Tab 2 -->
             </div>
