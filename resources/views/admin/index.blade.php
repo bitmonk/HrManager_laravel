@@ -10,7 +10,7 @@
                 <a class="nav-link" id="tab2" data-toggle="tab" href="#form2">Leave Requests</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="tab3" data-toggle="tab" href="#form3">Status</a>
+                <a class="nav-link" id="tab3" data-toggle="tab" href="#form3">Tasks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="tab4" data-toggle="tab" href="#form4">Payments</a>
