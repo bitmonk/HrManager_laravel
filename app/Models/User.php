@@ -28,10 +28,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'email', 'password','date_of_birth','phone1','phone2','blood_group_id','health_condition','position_id','level_id','image','join_date', 'contract_duration'
+        'name', 'last_name', 'email', 'password','date_of_birth','phone1','phone2','blood_group_id','health_condition','position_id','level_id','image','join_date', 'contract_duration', 'salary', 'salary_type'
 
     ];
-
+    protected $casts = [
+        'salary' => 'integer',
+        'email_verified_at' => 'datetime'
+       ];
     
 
     /**
@@ -48,9 +51,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 
     /**
      * Get the user's full name.
@@ -119,11 +119,16 @@ class User extends Authenticatable
     }
     public function salary()
     {
-        return $this->hasOne(salary::class,'u_id', 'id');
+        return $this->hasOne(salary::class, 'id');
     }
     public function bankDetails()
     {
         return $this->hasOne(bank_detail::class, 'u_id');
     }
 
+    public function salaryType()
+    {
+        return $this->belongsTo(Salary::class, 'salary_type');
+    }
+    
 }

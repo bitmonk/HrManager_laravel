@@ -35,7 +35,7 @@
                 </select>   
             </div>
             
-            <a href="{{ route('about') }}" class="btn btn-link text-danger ml-2"> <!-- Adjusted margin here -->
+            <a href="{{ route('about') }}" class="btn btn-link text-danger ml-2">
                 <i class="fas fa-times"></i>
             </a>
         </div>
@@ -53,14 +53,19 @@
         
         
         <div class="form-group">
-    <label for="salaryType">Salary Type:</label>
-    <input type="text" class="form-control" name="salaryType" value="{{ $salaries->salary_type ?? 'Unassigned' }}" placeholder="Salary Type">    
-</div>
+            <label for="salaryType">Salary Type:</label>
+            <select class="form-control" name="salaryType" id="salaryType">
+                <option value="1">Hourly</option>
+                <option value="2">Monthly</option>
+                <option value="3">Project-Based</option>
+            </select>
+        </div>
+        
 
         
 <div class="form-group">
     <label for="salary">Salary:</label>
-    <input type="text" class="form-control" id="salary" name="salary" value="{{ $salaries->salary ?? 'Unassigned' }}" placeholder="Enter salary (In Rs)">
+    <input type="text" class="form-control" id="salary" name="salary" value="{{ $salary ?? 'Unassigned' }}" placeholder="Enter salary (In Rs)">
 </div>
 
         <div class="form-group">

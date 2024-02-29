@@ -1,8 +1,12 @@
 <div class="card shadow mb-4">
     <table class="table">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         <thead>
+=======
+        <thead style="background-color: #4e73df; color: white;">
+>>>>>>> parbat
 =======
         <thead style="background-color: #4e73df; color: white;">
 >>>>>>> parbat
@@ -24,15 +28,15 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
-<<<<<<< HEAD
                     {{-- <td>{{ $user->position->position }}</td> --}}
                     <td>{{ $user->salary }}</td>
                     <td>{{ $user->type }}</td>
-=======
                     <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
                     <td>{{ optional($user->salary)->salary ?? 'Unassigned' }}</td>
                     <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
->>>>>>> 514c58d4828e531ce78109cef4fc6418a36b07af
+                    <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
+                    <td>{{ optional($user->salary)->salary ?? 'Unassigned' }}</td>
+                    <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
                     <td>{{ $user->status }}</td>
                     <td>
                         {{-- View button --}}

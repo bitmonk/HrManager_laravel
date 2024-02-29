@@ -27,7 +27,7 @@
             </div>
 
             <div class="tab-pane fade" id="form3">
-                @include('forms.status')
+                {{-- @include('forms.status') --}}
             </div>
             <div class="tab-pane fade" id="form4">
                 @include('forms.payment') 
