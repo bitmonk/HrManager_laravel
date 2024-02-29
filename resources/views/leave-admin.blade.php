@@ -27,23 +27,23 @@
                         <td>{{$leave->till}}</td>
                         <td>{{$leave->status}}</td>
 
-                        {{-- for approve and reject --}}
-                        <td> 
-                            @if($leave->status== 'pending')
-                            <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-success btn-sm">Approve</button>
-                            </form>
-                            <form action="{{ route('leave-admin-reject', $leave->id) }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-sm">Reject</button>
-                            </form>
-                            @else
-                            Reviewed
-                            @endif
-                        </td>
-                </tr>
-            @endforeach
+                            {{-- for approve and reject --}}
+                            <td> 
+                                @if($leave->status== 'pending')
+                                <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                                </form>
+                                <form action="{{ route('leave-admin-reject', $leave->id) }}" method="post"style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                </form>
+                                @else
+                                Reviewed
+                                @endif
+                            </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
