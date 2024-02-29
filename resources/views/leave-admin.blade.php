@@ -1,7 +1,8 @@
     <div class="container mt-4">        
 
         <table class="table">
-            <thead>
+            <thead style="background-color: #4e73df; color: white;">
+
                 <tr>
                     <th>Name</th>
                     <th>Reason for Leave</th>
@@ -27,23 +28,23 @@
                         <td>{{$leave->till}}</td>
                         <td>{{$leave->status}}</td>
 
-                            {{-- for approve and reject --}}
-                            <td> 
-                                @if($leave->status== 'pending')
-                                <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post" style="display: inline;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
-                                </form>
-                                <form action="{{ route('leave-admin-reject', $leave->id) }}" method="post"style="display: inline;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
-                                </form>
-                                @else
-                                Reviewed
-                                @endif
-                            </td>
-                    </tr>
-                @endforeach
+                        {{-- for approve and reject --}}
+                        <td> 
+                            @if($leave->status== 'pending')
+                            <form action="{{ route('leave-admin-approve', $leave->id) }}" method="post" style="display: inline-block;">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                            </form>
+                            <form action="{{ route('leave-admin-reject', $leave->id) }}" method="post" style="display: inline-block;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                            </form>
+                            @else
+                            Reviewed
+                            @endif
+                        </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
