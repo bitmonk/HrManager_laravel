@@ -13,11 +13,13 @@
             </tr>
         </thead>
         <tbody>
+
             @foreach ($users as $user)
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     {{-- <td>{{ $user->position->position }}</td> --}}
                     <td>{{ $user->salary }}</td>
@@ -27,6 +29,11 @@
                     <td>{{ optional($user->salary)->salary ?? 'Unassigned' }}</td>
                     <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
 >>>>>>> 514c58d4828e531ce78109cef4fc6418a36b07af
+=======
+                    <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
+                    <td>{{ optional($user->salary)->salary ?? 'Unassigned' }}</td>
+                    <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
+>>>>>>> 2d5174162b6e4a2f55991e0212db8e6c76b0b40d
                     <td>{{ $user->status }}</td>
                     <td>
                         {{-- View button --}}

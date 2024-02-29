@@ -33,9 +33,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
 Route::post('/tasks', [TasksController::class, 'store'])->name('taskstore');
-Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::put('/payment', 'ProfileController@payment')->name('payment.update');
 Route::put('/additionalTem', 'ProfileController@additionalTem')->name('additional.temp');
 Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additional.per');
@@ -79,3 +80,8 @@ Route::get('/activity-log-admin','ActivityAdminController@index')->name('activit
 
 Route::get('/activity-log/{username}', 'ActivityController@showProfile')->name('user.profile');
 // Route::get('/user/{username}/profile', 'UserProfileController@show')->name('user.profile');
+
+Route::post('/profile','ProfileController@store')->name('profile.store');
+
+
+

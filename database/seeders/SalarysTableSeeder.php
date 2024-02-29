@@ -11,9 +11,9 @@ class SalarysTableSeeder extends Seeder
     {
         // Insert dummy data into the 'salarys' table
         DB::table('salarys')->insert([
-            ['salary_type' => 'Monthly'],
-            ['salary_type' => 'Weekly'],
             ['salary_type' => 'Hourly'],
+            ['salary_type' => 'Monthly'],
+            ['salary_type' => 'Project-Based'],
             // Add as many as you need
         ]);
     }

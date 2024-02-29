@@ -17,7 +17,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($leaveRequests as $leave)
+                {{-- @foreach($leaveRequests as $leave) --}}
+                @foreach($leaveRequests->sortByDesc('created_at') as $leave)  {{--  Sort by latest first --}}
+
 
                 <tr>
                     
