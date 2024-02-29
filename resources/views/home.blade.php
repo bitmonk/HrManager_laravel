@@ -32,7 +32,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Users</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$users}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -49,7 +49,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Tasks</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">23</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$totalTasks}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -68,7 +68,7 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active Tasks</div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">16</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$totalTasks}}</div>
                                 </div>
                             </div>
                         </div>
@@ -81,15 +81,15 @@
         </div>
 
         <!-- Leave Requests -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-3 col-md-6 mb-4 hoverable-card">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Leave Requests</div>
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Leave Requests</div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">3</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$leaveRequests}}</div>
                                 </div>
                             </div>
                         </div>
@@ -128,12 +128,22 @@
                     <div class="progress mb-4">
                         <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <h4 class="small font-weight-bold">Backend Setup <span class="float-right">Complete!</span></h4>
+                    <h4 class="small font-weight-bold">Backen Setup <span class="float-right">Complete!</span></h4>
                     <div class="progress">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('.hoverable-card').click(function() {
+                        window.location.href = 'about?tab=2';
+                    });
+                });
+            </script>
+            
 
 
 @endsection

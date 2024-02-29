@@ -143,7 +143,7 @@ class UsersController extends Controller
             'position_id' => $request->input('position'),
             'level_id' => $request->input('level'),
             'salary' => $request->input('salary'),
-            'salary_type' => $request->input('salaryType'),
+            'salary_type' => $request->input('salaryType')
         ]);
     
         // Redirect to a success page or back to the edit form with a success message
