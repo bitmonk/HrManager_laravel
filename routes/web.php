@@ -42,11 +42,9 @@ Route::put('/additionalTem', 'ProfileController@additionalTem')->name('additiona
 Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additional.per');
 Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update');
 
-<<<<<<< HEAD
+
 // Route::get('/additionalTem', 'ProfileController@additionalTempAdd')->name('additional.add');
 
-=======
->>>>>>> parbat
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', [AdminController::class, 'index'])->name('about');
 // Route::get('/about', [AdminController::class, 'leave'])->name('aboutleave');
@@ -55,8 +53,6 @@ Route::get('/about', [AdminController::class, 'index'])->name('about');
 
 
 
-<<<<<<< HEAD
-=======
 // Route::get('/about', [LeaveAdminController::class, 'index'])->name('about');
 
 Route::get('/users/{id}', 'UsersController@show')->name('users.show'); 
@@ -64,7 +60,6 @@ Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit');
 Route::post('/users/{id}/update', 'UsersController@update')->name('users.update');
 
 
->>>>>>> parbat
 // for punchin and punchout
 // Route::get('/punch', [PunchInController::class, 'index'])->name('punch');
 Route::get('/punch-in', 'PunchInController@index')->name('punch');

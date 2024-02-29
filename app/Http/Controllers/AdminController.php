@@ -10,7 +10,6 @@ class AdminController extends Controller
 {
 public function index(){
     $users = User::all();
-<<<<<<< HEAD
 
     // $address = Address::where('u_id', $user->id)->first();
     // $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
@@ -18,11 +17,9 @@ public function index(){
     // return view('admin.index', compact('users','address','emergency_contact'));
 
 
-    return view('admin.index', compact('users'));
-}
-=======
+//     return view('admin.index', compact('users'));
+// }
     $leaveRequests = Leave::all();
->>>>>>> parbat
 
     return view('admin.index', compact('users', 'leaveRequests'));
 }
