@@ -4,7 +4,8 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Additional Information</h6>
         </div>
-
+        
+{{$address}}
         
         <div class="card-body">
 

@@ -25,6 +25,8 @@
     <div class="container">
 
 
+        {{-- {{($address)}} --}}
+
         <div class="container">
             <form method="POST" action="{{ route('profile') }}" enctype="multipart/form-data">
                 @csrf

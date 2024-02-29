@@ -9,6 +9,13 @@ class AdminController extends Controller
 {
 public function index(){
     $users = User::all();
+
+    // $address = Address::where('u_id', $user->id)->first();
+    // $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
+
+    // return view('admin.index', compact('users','address','emergency_contact'));
+
+
     return view('admin.index', compact('users'));
 }
 
