@@ -9,9 +9,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfileController extends Controller
 {
+
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,7 +23,29 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile');
+
+        // $user = User::findOrFail(Auth::user()->id);
+
+        $user = Auth::user();
+
+        $address = Address::where('u_id', $user->id)->first();
+
+        //         // Retrieve the permanent address associated with the authenticated user
+        //     $permanentAddress = Address::where('u_id', $user->id)
+        //     ->where('type', 'Permanent')
+        //     ->first();
+
+        // // Retrieve the temporary address associated with the authenticated user
+        //         $temporaryAddress = Address::where('u_id', $user->id)
+        //         ->where('type', 'Temporary')
+        //     ->first();
+
+        $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
+
+        // $bankDetails = bank_detail::where('u_id', $user->id)->first();
+
+            return view('profile', compact('user','address','emergency_contact'));
+      
     }
 
     public function update(Request $request)
@@ -28,9 +54,15 @@ class ProfileController extends Controller
             'name' => 'required|string|max:255',
             'last_name' => 'nullable|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id,
+            'date_of_birth' => 'nullable|date',
+            'blood_group' => 'nullable',
             'current_password' => 'nullable|required_with:new_password',
             'new_password' => 'nullable|min:8|max:12|regex:/[A-Z]/|regex:/[a-z]/|regex:/[0-9]/|regex:/[@$!%*?&]/|required_with:current_password',
-            'password_confirmation' => 'nullable|min:8|max:12|required_with:new_password|same:new_password'
+            'password_confirmation' => 'nullable|min:8|max:12|required_with:new_password|same:new_password',
+            'phone1'=>'required|numeric|digits:10',
+            'phone2'=>'required|numeric|digits:10',
+            'health_condition'=>'string|max:255'
+
         ]);
 
 
@@ -41,8 +73,9 @@ class ProfileController extends Controller
         $user->email = $request->input('email');
         $user->phone1 = $request->input('phone1');
         $user->phone2 = $request->input('phone2');
+        $user->date_of_birth = $request->input('date_of_birth');
         $user->blood_group_id = $request->input('bloodGroup');
-        $user->health_condition = $request->input('health');
+        $user->health_condition = $request->input('health_condition');
         $user->position_id = $request->input('new-password');
 
         if (!is_null($request->input('current_password'))) {
@@ -53,11 +86,13 @@ class ProfileController extends Controller
             }
         }
 
+
         $user->save();
 
         return redirect()->route('profile')->withSuccess('Profile updated successfully.');
     }
 
+    // for additional information form
     public function additionalTem(Request $request){
     // Find the authenticated user
     $user = User::findOrFail(Auth::user()->id);
@@ -78,20 +113,23 @@ class ProfileController extends Controller
     $address->save();
 
     // You can redirect to a success page or return a response as needed
-    return redirect()->route('profile')->withSuccess('Profile updated successfully.');
-}
+    // return redirect()->route('profile')->withSuccess('Profile updated successfully.');
+    return redirect()->route('profile')->with(['success' => 'Profile updated successfully.', 'address' => $address]);
 
 
-public function additionalPer(Request $request){
+    }
+
+
+    public function additionalPer(Request $request){
     // Validate the incoming request data
-    $validatedData = $request->validate([
-        'district' => 'required|string|max:255',
-        'city' => 'required|string|max:255',
-        'street' => 'required|string|max:255',
-        'ward' => 'required|string|max:255',
-        'zipcode' => 'required|string|max:20',
-        'zone' => 'required|string|max:255',
-    ]);
+        $validatedData = $request->validate([
+            'district' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'street' => 'required|string|max:255',
+            'ward' => 'required|string|max:255',
+            'zipcode' => 'required|string|max:20',
+            'zone' => 'required|string|max:255',
+        ]);
 
     // Find the authenticated user
     $user = User::findOrFail(Auth::user()->id);
@@ -112,7 +150,9 @@ public function additionalPer(Request $request){
     $address->save();
 
     // You can redirect to a success page or return a response as needed
-    return redirect()->route('profile')->withSuccess('Profile updated successfully.');
+    // return redirect()->back()->withSuccess('Permanent address updated successfully.');
+    return view('/forms/additional')->with('address', $address);
+
 }
 
 
@@ -139,7 +179,13 @@ public function payment(Request $request)
             // Update any other fields if needed
         ]);
     } else {
+        $request->validate([
+            'b_name' => 'required|string|max:255',
+            'acc_no'=>'required|numeric',
+    
+        ]);
         // If no bank details exist, create a new record
+
         $bankDetails = new bank_detail([
             'u_id' => $user->id,
             'bank_name' => $request->input('b_name'),
@@ -151,14 +197,22 @@ public function payment(Request $request)
     }
 
     // Your other payment logic here
+    return redirect()->back()->withSuccess('Bank Details updated successfully.');
 
-    return redirect()->route('profile.update')->with('success', 'Bank details updated successfully.');
 }
 
 
-
+//for emergency contact
 public function emergency(Request $request)
 {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'phone1'=>'required|numeric|digits:10',
+        'phone2'=>'required|numeric|digits:10',
+        'relation'=>'required|string|max:50',
+
+
+    ]);
     $user = User::findOrFail(Auth::user()->id);
 
     // Find or create the associated emergency contact
@@ -175,6 +229,44 @@ public function emergency(Request $request)
     $emergency->save();
 
     // You can redirect to a success page or return a response as needed
-    return redirect()->route('profile.update')->with('success', 'Emergency contact details updated successfully.');
+    // return redirect()->route('profile.update')->with('success', 'Emergency contact details updated successfully.');
+    return redirect()->back()->withSuccess('Emergency Contact updated successfully.');
+
 }
+
+public function store(Request $request)
+{
+    $user = Auth::user();
+    
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        
+        // Generate a unique filename for the image
+        $filename = uniqid() . '.' . $image->getClientOriginalExtension();
+        
+        // Store the uploaded image in the public directory
+        $image->move(public_path('images'), $filename);
+        
+        // Store the image path in the user's image column
+        $user->image = 'images/' . $filename;
+
+        try {
+            $user->save();
+
+            $address = Address::where('u_id', $user->id)->first();
+            $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
+
+
+            return view('profile')->with(['user' => $user, 'address' => $address,'emergency_contact'=>$emergency_contact]);
+
+            // return view('profile')->with('user', $user);
+        } catch (\Exception $e) {
+            return redirect()->back()->withError('Failed to save image: ' . $e->getMessage());
+        }
+    } else {
+        return redirect()->back()->withError('No image uploaded');
+    }
+}
+
+
 }

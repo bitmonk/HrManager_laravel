@@ -20,10 +20,12 @@
             <div class="tab-pane fade show active" id="form1">
                 @include('admin.users') 
             </div>
+
             <div class="tab-pane fade" id="form2">
                 @include('leave-admin') 
 
             </div>
+
             <div class="tab-pane fade" id="form3">
                 @include('forms.status')
             </div>

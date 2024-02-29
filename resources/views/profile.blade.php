@@ -22,17 +22,26 @@
             </ul>
         </div>
     @endif
-
     <div class="container">
 
-        <div class="container">
 
-            <div class="card-profile-image mt-4">
-                <!-- Display uploaded image -->
-                <img id="profileImage" src="path_to_default_image" alt="Uploaded Image" class="rounded-circle avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px; cursor: pointer;">
-                <!-- Hidden file input for image upload -->
-                <input type="file" id="uploadInput" accept="image/*" style="display: none;">
-            </div>
+        {{-- {{($address)}} --}}
+
+        <div class="container">
+            <form method="POST" action="{{ route('profile') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="card-profile-image mt-4">
+                    <!-- Display uploaded image -->
+                    <img id="profileImage" src="{{asset($user->image) }}" alt="Uploaded Image" class="rounded-circle avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px; cursor: pointer;">
+                    
+                    <!-- Hidden file input for image upload -->
+                    <input type="file" id="uploadInput" name="image" accept="image/*" style="display: none;">
+                    <button class="btn btn-primary" type="submit" >Upload Image</button>
+
+                </div>
+            </form>
+
+
                 <div class="card-body">
 
                     <div class="row">
