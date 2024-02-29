@@ -39,6 +39,7 @@ return new class extends Migration
             $table->foreign('level_id')
                 ->references('id')
                 ->on('levels');
+            $table->date('contract_duration')->nullable();
         }); 
     }
 

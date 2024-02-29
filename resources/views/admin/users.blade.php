@@ -1,15 +1,9 @@
 <div class="card shadow mb-4">
     <table class="table">
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         <thead>
-=======
         <thead style="background-color: #4e73df; color: white;">
->>>>>>> parbat
-=======
         <thead style="background-color: #4e73df; color: white;">
->>>>>>> parbat
             <tr>
                 <th>ID</th>
                 <th>Name</th>

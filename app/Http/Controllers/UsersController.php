@@ -106,8 +106,7 @@ class UsersController extends Controller
 
         $levelId = $user->level ? $user->level->id : null;
         
-        
-
+    
         $tasks = Task::all();
         $error = "task not found!";
         if ($tasks) {
@@ -144,6 +143,7 @@ class UsersController extends Controller
             'level_id' => $request->input('level'),
             'salary' => $request->input('salary'),
             'salary_type' => $request->input('salaryType'),
+            'contract_duration' => $request->input('contractDuration')
         ]);
     
         // Redirect to a success page or back to the edit form with a success message

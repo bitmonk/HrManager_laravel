@@ -19,8 +19,21 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="position">Current Position :</label>
-                                {{-- <div class="container">
+                                <label class="form-control-label" for="position">
+                                    Current Position: 
+                                    @if($user->position_id == 1)
+                                        Super Admin
+                                    @elseif($user->position_id == 2)
+                                        Department Head
+                                    @elseif($user->position_id == 3)
+                                        Team Leader
+                                    @elseif($user->position_id == 4)
+                                        Employee
+                                    @else
+                                        Unassigned
+                                    @endif
+                                </label>
+                                                                {{-- <div class="container">
                                     <select class="form-control" id="dropdownOptions" aria-label="Select an Option">
                                         <option selected disabled>Super Admin</option>
                                         <option value="option1">Super Admin</option>
@@ -34,8 +47,23 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="level">Level : {{$user->level_id}}</label>
-                                
+                                {{-- <label class="form-control-label" for="level">Level : {{$levelId}}</label> --}}
+                                <label class="form-control-label" for="level">
+                                    Level:
+                                    @if($levelId == 1)
+                                        Intern
+                                    @elseif($levelId == 2)
+                                        Trainee
+                                    @elseif($levelId == 3)
+                                        Junior
+                                    @elseif($levelId == 4)
+                                        Midlevel
+                                    @elseif($levelId == 5)
+                                        Senior
+                                    @else
+                                        Unassigned
+                                    @endif
+                                </label>                                
                             </div>
                         </div>
                     </div>
@@ -49,7 +77,7 @@
 
                         <div class="col-lg-4">
                             <div class="form-group focused">
-                                <label class="form-control-label" >Contract Duration :  </label>
+                                <label class="form-control-label" >Contract Duration :{{$user->contract_duration}}  </label>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -64,12 +92,23 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label">Salary Type :</label>
+                                <label class="form-control-label">
+                                    Salary Type:
+                                    @if($salaryTypes == 1)
+                                        Monthly
+                                    @elseif($salaryTypes == 2)
+                                        Weekly
+                                    @elseif($salaryTypes == 3)
+                                        Project-Based
+                                    @else
+                                        Unassigned
+                                    @endif
+                                </label>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label">Salary Amount :</label>
+                                <label class="form-control-label">Salary Amount : {{$user->salary}}</label>
                             </div>
                         </div>
                     </div>

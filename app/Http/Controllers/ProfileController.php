@@ -28,6 +28,17 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
+        $position = $user->position ? $user->position->position : null;
+        $positionId = $user->position ? $user->position->id : null;
+        
+        $levelId = $user->level ? $user->level->id : null;
+
+
+        $salary = $user->salary ? $user->salary :null;
+        // $salaryTypes = User::distinct()->pluck('salary_type')->toArray();
+        $salaryTypes= $user->salary_type ? $user->salary_type :null;
+        
+
         $address = Address::where('u_id', $user->id)->first();
 
         //         // Retrieve the permanent address associated with the authenticated user
@@ -44,7 +55,7 @@ class ProfileController extends Controller
 
         // $bankDetails = bank_detail::where('u_id', $user->id)->first();
 
-            return view('profile', compact('user','address','emergency_contact'));
+            return view('profile', compact('user','address','emergency_contact','position', 'positionId', 'levelId', 'salary', 'salaryTypes'));
       
     }
 
@@ -76,7 +87,7 @@ class ProfileController extends Controller
         $user->date_of_birth = $request->input('date_of_birth');
         $user->blood_group_id = $request->input('bloodGroup');
         $user->health_condition = $request->input('health_condition');
-        $user->position_id = $request->input('new-password');
+        $user->position_id = $request->input('position_id');
 
         if (!is_null($request->input('current_password'))) {
             if (Hash::check($request->input('current_password'), $user->password)) {
