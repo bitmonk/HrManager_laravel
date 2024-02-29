@@ -45,7 +45,7 @@
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{$user->name}}</h5>
                                                         <p class="card-text">Email: {{$user->email}}</p>
-                                                        <p class="card-text">{{$user->position->position}}</p>
+                                                        <p class="card-text">{{ optional($user->position)->position ?? 'Unassigned' }}</p>
                                                         <p class="card-text">Joined: {{$user->join_date}}</p>
                                                     </div>
                                                 </div>
@@ -58,10 +58,12 @@
                                                             <li class="list-group-item"><strong>Health Condition:</strong> {{$user->health_condition}}</li>
                                                             <li class="list-group-item">
                                                                 <strong>Permanent Address:</strong> 
-                                                                {{$user->permanentAddress->city}}, 
-                                                                {{$user->permanentAddress->street}}, 
-                                                                {{$user->permanentAddress->district}}, 
-                                                                {{$user->permanentAddress->zipcode}}, 
+                                                                {{$user->permanentAddress ? optional($user->permanentAddress->city)->name ?? 'empty' : 'Empty'}},
+
+                                                                {{$user->permanentAddress ? optional($user->permanentAddress->street)->name ?? 'Empty' : 'Empty'}},
+                                                                {{$user->permanentAddress ? optional($user->permanentAddress->district)->name ?? 'Empty' : 'Empty'}},
+                                                                {{$user->permanentAddress ? optional($user->permanentAddress->zipcode)->code ?? 'Empty' : 'Empty'}}
+                                                                
                                                             </li>
                                                             <li class="list-group-item">
                                                                 <strong>Temporary Address:</strong> 

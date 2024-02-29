@@ -15,8 +15,10 @@ class Leave extends Model
          'name', 'date', // Add more fields as needed
      ];
 
-     public function user()
-     {
-        return $this->belongsTo(User::class, 'user_id');
-     }
+    // Leave.php (Leave model)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

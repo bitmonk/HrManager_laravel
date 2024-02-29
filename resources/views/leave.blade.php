@@ -24,8 +24,8 @@
             <button type="submit" class="btn btn-primary btn-sm">Apply</button>
         </form>
 
-        <table class="table">
-            <thead>
+        <table class="table mt-4">
+            <thead style="background-color: #4e73df; color: white;">
                 <tr>
                     <th>Name</th>
                     <th>Reason for Leave</th>

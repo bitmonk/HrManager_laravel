@@ -59,8 +59,8 @@
         <!-- Nav Item - Profile -->
         <li class="nav-item {{ Nav::isRoute('punch') }}">
             <a class="nav-link" href="{{ route('punch') }}">
-                <i class="fa-regular fa-keyboard"></i>
-                <span>{{ __('Punch') }}</span>
+                <i class="fa-regular fa-clock"></i>
+                 <span>{{ __('Punch') }}</span>
             </a>
         </li>
 
