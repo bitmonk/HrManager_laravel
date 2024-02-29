@@ -14,7 +14,7 @@ class Salary extends Model
      *
      * @var string
      */
-    protected $table = 'salaries'; // Replace 'salaries' with your actual table name
+    protected $table = 'salarys'; // Replace 'salaries' with your actual table name
 
     /**
      * Indicates if the model's created_at timestamps are not used.
@@ -26,6 +26,6 @@ class Salary extends Model
     // Assuming you have a relationship method for the User model
     public function user()
     {
-        return $this->belongsTo(User::class, 'u_id', 'id');
+        return $this->belongsTo(User::class,  'id');
     }
 }

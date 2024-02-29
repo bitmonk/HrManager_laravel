@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             blood_groupSeeder::class,
             levelSeeder::class,
-            positionSeeder::class
+            positionSeeder::class,
+            SalarysTableSeeder::class
+
         ]);
 
 
