@@ -18,7 +18,7 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
-                    <td>{{ $user->position->position }}</td>
+                    {{-- <td>{{ $user->position->position }}</td> --}}
                     <td>{{ $user->salary }}</td>
                     <td>{{ $user->type }}</td>
                     <td>{{ $user->status }}</td>
