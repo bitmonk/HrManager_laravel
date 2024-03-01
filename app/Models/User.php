@@ -119,7 +119,7 @@ class User extends Authenticatable
     }
     public function salary()
     {
-        return $this->hasOne(salary::class, 'id');
+        return $this->belongsTo(salary::class);
     }
     public function bankDetails()
     {
@@ -130,5 +130,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Salary::class, 'salary_type');
     }
-    
+
 }
