@@ -78,7 +78,8 @@
                                                             </li>
                                                             <li class="list-group-item"><strong>Level:</strong> {{$levelName}}</li>
                                                             <li class="list-group-item"><strong>Salary Type:</strong> {{$salaryType}}</li>
-                                                            <li class="list-group-item"><strong>Salary Amount:</strong> {{$amount}}</li>
+                                                            <li class="list-group-item"><strong>Salary Amount:</strong> {{ $user->salary ?? 'unassigned' }}</li>
+
                                                             <!-- Add more personal details as needed -->
                                                         </ul>
                                                     </div>

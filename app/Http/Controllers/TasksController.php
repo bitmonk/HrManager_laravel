@@ -15,6 +15,7 @@ class TasksController extends Controller
         $tasks = ModelsTask::all();
         $users = User::all();
         
+
         return view('tasks', compact('tasks', 'users'));
     }
 

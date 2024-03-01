@@ -26,6 +26,6 @@ class Salary extends Model
     // Assuming you have a relationship method for the User model
     public function user()
     {
-        return $this->belongsTo(User::class,  'id');
+        return $this->hasOne(User::class,  'id');
     }
 }

@@ -27,7 +27,7 @@
             </div>
 
             <div class="tab-pane fade" id="form3">
-                {{-- @include('forms.status') --}}
+                @include('admin-tasks')
             </div>
             <div class="tab-pane fade" id="form4">
                 @include('admin.activity-log-admin') 
