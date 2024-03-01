@@ -22,15 +22,21 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
-                    {{-- <td>{{ $user->position->position }}</td> --}}
+                    <td>{{ $user->position->position }}</td>
                     <td>{{ $user->salary }}</td>
-                    <td>{{ $user->type }}</td>
-                    <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
-                    <td>{{ optional($user->salary)->salary ?? 'Unassigned' }}</td>
-                    <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
-                    <td>{{ optional($user->position)->position ?? 'Unassigned' }}</td>
-                    <td>{{ optional($user->salary)->salary ?? 'Unassigned' }}</td>
-                    <td>{{ optional(json_decode($user->salary))->salary_type }}</td>
+                    {{-- <td>{{ $user->salary_type }}</td> --}}
+                    
+                    <td> 
+                    @if($user->salary_type == 1)
+                        Monthly
+                    @elseif($user->salary_type == 2)
+                        Weekly
+                    @elseif($user->salary_type == 3)
+                        Project-Based
+                    @else
+                        Unassigned
+                    @endif </td>
+                    {{-- <td>{{ optional(json_decode($user->salary))->salary_type }}</td> --}}
                     <td>{{ $user->status }}</td>
                     <td>
                         {{-- View button --}}

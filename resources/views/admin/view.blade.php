@@ -43,7 +43,7 @@
                                                 <div class="card">
                                                     <img src="{{asset($user->image)}}" class="card-img-top" alt="Not Found">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">{{$user->name}}</h5>
+                                                        <h5 class="card-title"><b>{{$user->name}} {{$user->last_name}}</b></h5>
                                                         <p class="card-text">Email: {{$user->email}}</p>
                                                         <p class="card-text">{{ optional($user->position)->position ?? 'Unassigned' }}</p>
                                                         <p class="card-text">Joined: {{$user->join_date}}</p>
