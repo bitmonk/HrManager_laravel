@@ -31,17 +31,18 @@ class ProfileController extends Controller
         $position = $user->position ? $user->position->position : null;
         $positionId = $user->position ? $user->position->id : null;
         
-        $levelId = $user->level ? $user->level->id : null;
+        // $levelId = $user->level ? $user->level->id : null;
 
 
-        $salary = $user->salary ? $user->salary :null;
+        // $salary = $user->salary ? $user->salary :null;
         // $salaryTypes = User::distinct()->pluck('salary_type')->toArray();
+
         $salaryTypes= $user->salary_type ? $user->salary_type :null;
         
 
         $address = Address::where('u_id', $user->id)->first();
 
-        //         // Retrieve the permanent address associated with the authenticated user
+        //  // Retrieve the permanent address associated with the authenticated user
         //     $permanentAddress = Address::where('u_id', $user->id)
         //     ->where('type', 'Permanent')
         //     ->first();
@@ -55,7 +56,7 @@ class ProfileController extends Controller
 
         // $bankDetails = bank_detail::where('u_id', $user->id)->first();
 
-            return view('profile', compact('user','address','emergency_contact','position', 'positionId', 'levelId', 'salary', 'salaryTypes'));
+            return view('profile', compact('user','address','emergency_contact','position', 'positionId'));
       
     }
 

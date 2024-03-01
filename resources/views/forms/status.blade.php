@@ -50,18 +50,21 @@
                                 {{-- <label class="form-control-label" for="level">Level : {{$levelId}}</label> --}}
                                 <label class="form-control-label" for="level">
                                     Level:
-                                    @if($levelId == 1)
+                                    @if($user->level_id == 1)
                                         Intern
-                                    @elseif($levelId == 2)
+                                    @elseif($user->level_id == 2)
                                         Trainee
-                                    @elseif($levelId == 3)
+                                    @elseif($user->level_id == 3)
                                         Junior
-                                    @elseif($levelId == 4)
+                                    @elseif($user->level_id == 4)
                                         Midlevel
-                                    @elseif($levelId == 5)
+                                    @elseif($user->level_id == 5)
                                         Senior
+                                    {{-- @elseif($user->level ==null)
+                                        Unassigned --}}
                                     @else
-                                        Unassigned
+                                    Unassigned
+                                        
                                     @endif
                                 </label>                                
                             </div>
@@ -94,11 +97,11 @@
                             <div class="form-group focused">
                                 <label class="form-control-label">
                                     Salary Type:
-                                    @if($salaryTypes == 1)
+                                    @if($user->salary_type == 1)
                                         Monthly
-                                    @elseif($salaryTypes == 2)
+                                    @elseif($user->salary_type == 2)
                                         Weekly
-                                    @elseif($salaryTypes == 3)
+                                    @elseif($user->salary_type == 3)
                                         Project-Based
                                     @else
                                         Unassigned
