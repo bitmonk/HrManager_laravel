@@ -119,36 +119,41 @@ class UsersController extends Controller
         $salaryTypes = User::distinct()->pluck('salary_type')->toArray();
         // dd($salaryTypes);
 
-        return view('admin.edit', compact('user', 'position', 'positionId', 'levelId', 'salary', 'tasks', 'salaryTypes','error'));
+        $start_time = $user->start_time ? $user->start_time : null;
+        $end_time = $user->end_time ? $user->end_time : null;
+
+        return view('admin.edit', compact('user', 'position', 'positionId', 'levelId', 'salary', 'tasks', 'salaryTypes', 'start_time', 'end_time','error'));
     }
     
 
     public function update(Request $request, $id)
-    {
+{
+    $request->validate([
+        'position' => 'required',
+        'level' => 'required',
+        'salary' => 'required',        
+        'salaryType' => 'required',    
+        'start_time' => 'required', // Add validation for start_time
+        'end_time' => 'required',   // Add validation for end_time
+    ]);
 
-        $request->validate([
-            'position' => 'required',
-            'level' => 'required',
-            'salary' => 'required',        
-            'salaryType' => 'required',    
-            'contractDuration' => 'required',
-        ]);
-        
-    
-        // Find the admin record from the database based on the $id
-        $admin = User::findOrFail($id);
-    
-        // Update the admin record with the form data
-        $admin->update([
-            'position_id' => $request->input('position'),
-            'level_id' => $request->input('level'),
-            'salary' => $request->input('salary'),
-            'salary_type' => $request->input('salaryType')
-        ]);
-    
-        // Redirect to a success page or back to the edit form with a success message
-        return redirect()->route('users.edit', $id)->with('success', 'Admin record updated successfully');
-    }
+    // Find the admin record from the database based on the $id
+    $admin = User::findOrFail($id);
+
+    // Update the admin record with the form data
+    $admin->update([
+        'position_id' => $request->input('position'),
+        'level_id' => $request->input('level'),
+        'salary' => $request->input('salary'),
+        'salary_type' => $request->input('salaryType'),
+        'start_time' => $request->input('start_time'),
+        'end_time' => $request->input('end_time'),
+    ]);
+
+    // Redirect to a success page or back to the edit form with a success message
+    return redirect()->route('users.edit', $id)->with('success', 'Admin record updated successfully');
+}
+
 
 
 

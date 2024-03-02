@@ -50,8 +50,16 @@
             </select>
         </div>
         
+        <div class="form-group">
+            <label for="start_time">Start Time:</label>
+            <input type="time" class="form-control" id="start_time" name="start_time" value="{{$start_time}}">
+        </div>
         
-        
+        <div class="form-group">
+            <label for="end_time">End Time:</label>
+            <input type="time" class="form-control" id="end_time" name="end_time" value="{{$end_time}}">
+        </div>
+
         <div class="form-group">
             <label for="salaryType">Salary Type:</label>
             <select class="form-control" name="salaryType" id="salaryType">

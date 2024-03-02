@@ -26,7 +26,7 @@ class TasksController extends Controller
             'description' => 'required|string',
             'deadline' => [
                 'required',
-                'date',
+                'date'
         
             ], 
             'photo'=>'',
