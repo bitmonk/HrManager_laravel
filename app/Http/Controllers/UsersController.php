@@ -125,7 +125,6 @@ class UsersController extends Controller
         return view('admin.edit', compact('user', 'position', 'positionId', 'levelId', 'salary', 'tasks', 'salaryTypes', 'start_time', 'end_time','error'));
     }
     
-
     public function update(Request $request, $id)
 {
     $request->validate([
