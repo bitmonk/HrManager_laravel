@@ -36,8 +36,19 @@
                     @else
                         Unassigned
                     @endif </td>
-                    {{-- <td>{{ optional(json_decode($user->salary))->salary_type }}</td> --}}
-                    <td>{{ $user->status }}</td>
+
+
+                    <td>
+                        @if($latestPunchIn->punch_in_time && !$latestPunchIn->punch_out_time)
+                            Active
+                        @elseif($latestPunchIn->punch_in_time&& $latestPunchIn->punch_out_time)
+                            Inactive
+                        @else
+                            Inactive
+                        @endif
+
+                    </td>
+
                     <td>
                         {{-- View button --}}
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">View</a>

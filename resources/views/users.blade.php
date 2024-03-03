@@ -36,7 +36,19 @@
                             Unassigned
                         @endif </td>
                         
-                    <td>{{ $user->status }}</td>
+
+
+                        {{-- {{($latestPunchIn)}} --}}
+                    <td>
+                        @if($latestPunchIn->punch_in_time && !$latestPunchIn->punch_out_time)
+                            Active
+                        @elseif($latestPunchIn->punch_in_time&& $latestPunchIn->punch_out_time)
+                            Inactive
+                        @else
+                            Inactive
+                        @endif
+
+                    </td>
                 </tr>
             @endforeach
         </tbody>

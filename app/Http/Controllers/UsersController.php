@@ -7,14 +7,25 @@ use App\Models\position;
 use App\Models\salary;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\PunchIn;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::all(); 
-        return view('users', compact('users'));
+        $users = User::all();
+
+        if (Auth::check()) {
+            $user = Auth::user();
+        
+        $latestPunchIn = $user->punchIns()->latest()->first();
+        }
+        return view('users', compact('users','latestPunchIn'));
     }
 
     public function show($id)
