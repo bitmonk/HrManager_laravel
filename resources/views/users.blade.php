@@ -23,10 +23,32 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
-                    {{-- <td>{{ $user-> }}</td> --}}
+                    <td>{{ $user->position->position }}</td>
                     <td>{{ $user->salary }}</td>
-                    <td>{{ $user->type }}</td>
-                    <td>{{ $user->status }}</td>
+                    <td> 
+                        @if($user->salary_type == 1)
+                            Monthly
+                        @elseif($user->salary_type == 2)
+                            Weekly
+                        @elseif($user->salary_type == 3)
+                            Project-Based
+                        @else
+                            Unassigned
+                        @endif </td>
+                        
+
+
+                        {{-- {{($latestPunchIn)}} --}}
+                    <td>
+                        @if($latestPunchIn->punch_in_time && !$latestPunchIn->punch_out_time)
+                            Active
+                        @elseif($latestPunchIn->punch_in_time&& $latestPunchIn->punch_out_time)
+                            Inactive
+                        @else
+                            Inactive
+                        @endif
+
+                    </td>
                 </tr>
             @endforeach
         </tbody>

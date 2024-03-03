@@ -131,4 +131,18 @@ class User extends Authenticatable
         return $this->belongsTo(Salary::class, 'salary_type');
     }
 
+    // Inside your User model
+
+// public function getSalaryTypeAttribute()
+// {
+//     $types = [
+//         1 => 'Monthly',
+//         2 => 'Weekly',
+//         3 => 'Project-Based',
+//     ];
+
+//     return $types[$this->salary_type] ?? 'Unassigned';
+// }
+
+    
 }

@@ -41,9 +41,9 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="card">
-                                                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="card-img-top" alt="Not Found">
+                                                    <img src="{{asset($user->image)}}" class="card-img-top" alt="Not Found">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">{{$user->name}}</h5>
+                                                        <h5 class="card-title"><b>{{$user->name}} {{$user->last_name}}</b></h5>
                                                         <p class="card-text">Email: {{$user->email}}</p>
                                                         <p class="card-text">{{ optional($user->position)->position ?? 'Unassigned' }}</p>
                                                         <p class="card-text">Joined: {{$user->join_date}}</p>
@@ -76,10 +76,37 @@
                                                                 <strong>Emergency Contact:</strong> 
                                                                 Name: {{$emergencyContactName}}, Relation: {{$emergencyContactRelation}}, Phone Number: {{$emergencyContactPhone}}
                                                             </li>
-                                                            <li class="list-group-item"><strong>Level:</strong> {{$levelName}}</li>
-                                                            <li class="list-group-item"><strong>Salary Type:</strong> {{$salaryType}}</li>
-                                                            <li class="list-group-item"><strong>Salary Amount:</strong> {{ $user->salary ?? 'unassigned' }}</li>
-
+                                                            <li class="list-group-item"><strong>Level:</strong>
+                                                                @if($user->level_id == 1)
+                                                                    Intern
+                                                                @elseif($user->level_id == 2)
+                                                                    Trainee
+                                                                @elseif($user->level_id == 3)
+                                                                    Junior
+                                                                @elseif($user->level_id == 4)
+                                                                    Midlevel
+                                                                @elseif($user->level_id == 5)
+                                                                    Senior
+                                                                {{-- @elseif($user->level ==null)
+                                                                    Unassigned --}}
+                                                                @else
+                                                                    Unassigned
+                                                                @endif
+                                                            </li>
+                                                            <li class="list-group-item"><strong>Salary Type:</strong>
+                                                                    @if($user->salary_type == 1)
+                                                                    Monthly
+                                                                @elseif($user->salary_type == 2)
+                                                                    Weekly
+                                                                @elseif($user->salary_type == 3)
+                                                                    Project-Based
+                                                                @else
+                                                                    Unassigned
+                                                                @endif
+                                                            </li>
+                                                            <li class="list-group-item"><strong>Salary Amount:</strong>
+                                                                {{ $user->salary }}
+                                                            </li>
                                                             <!-- Add more personal details as needed -->
                                                         </ul>
                                                     </div>
