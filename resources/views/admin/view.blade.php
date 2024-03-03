@@ -76,9 +76,37 @@
                                                                 <strong>Emergency Contact:</strong> 
                                                                 Name: {{$emergencyContactName}}, Relation: {{$emergencyContactRelation}}, Phone Number: {{$emergencyContactPhone}}
                                                             </li>
-                                                            <li class="list-group-item"><strong>Level:</strong> {{$levelName}}</li>
-                                                            <li class="list-group-item"><strong>Salary Type:</strong> {{$salaryType}}</li>
-                                                            <li class="list-group-item"><strong>Salary Amount:</strong> {{$amount}}</li>
+                                                            <li class="list-group-item"><strong>Level:</strong>
+                                                                @if($user->level_id == 1)
+                                                                    Intern
+                                                                @elseif($user->level_id == 2)
+                                                                    Trainee
+                                                                @elseif($user->level_id == 3)
+                                                                    Junior
+                                                                @elseif($user->level_id == 4)
+                                                                    Midlevel
+                                                                @elseif($user->level_id == 5)
+                                                                    Senior
+                                                                {{-- @elseif($user->level ==null)
+                                                                    Unassigned --}}
+                                                                @else
+                                                                    Unassigned
+                                                                @endif
+                                                            </li>
+                                                            <li class="list-group-item"><strong>Salary Type:</strong>
+                                                                    @if($user->salary_type == 1)
+                                                                    Monthly
+                                                                @elseif($user->salary_type == 2)
+                                                                    Weekly
+                                                                @elseif($user->salary_type == 3)
+                                                                    Project-Based
+                                                                @else
+                                                                    Unassigned
+                                                                @endif
+                                                            </li>
+                                                            <li class="list-group-item"><strong>Salary Amount:</strong>
+                                                                {{ $user->salary }}
+                                                            </li>
                                                             <!-- Add more personal details as needed -->
                                                         </ul>
                                                     </div>

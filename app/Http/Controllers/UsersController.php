@@ -21,6 +21,9 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
 
+        $address = Address::where('u_id', $user->id)->first();
+        // $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
+
         $temporaryAddresses = $user->address()->where('type', 'temporary')->get();
 
         $city = $district = $street = $zipcode = 'Empty';
@@ -89,7 +92,8 @@ class UsersController extends Controller
         'salaryType',
         'bankName',
         'accountName',
-        'accountNumber'
+        'accountNumber',
+        'address'
 
     ));
     }
