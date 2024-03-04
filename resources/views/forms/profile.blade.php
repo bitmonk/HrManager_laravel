@@ -33,7 +33,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="form-control-label" for="dob">Date of Birth<span class="small text-danger">*</span></label>
-                                <input type="date" id="dob" class="form-control" name="dob" placeholder="Date of Birth" value="{{ old('date_of_birth', Auth::user()->dob) }}">
+                                <input type="date" id="dob" class="form-control" name="date_of_birth" placeholder="Date of Birth" value="{{ old('date_of_birth', Auth::user()->date_of_birth) }}">
                             </div>
                         </div>
                         

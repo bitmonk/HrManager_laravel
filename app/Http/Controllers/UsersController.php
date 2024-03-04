@@ -7,19 +7,33 @@ use App\Models\position;
 use App\Models\salary;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\PunchIn;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::all(); 
-        return view('users', compact('users'));
+        $users = User::all();
+
+        if (Auth::check()) {
+            $user = Auth::user();
+        
+        $latestPunchIn = $user->punchIns()->latest()->first();
+        }
+        return view('users', compact('users','latestPunchIn'));
     }
 
     public function show($id)
     {
         $user = User::findOrFail($id);
+
+        $address = Address::where('u_id', $user->id)->first();
+        // $emergency_contact = emergency_contact::where('u_id', $user->id)->first();
 
         $temporaryAddresses = $user->address()->where('type', 'temporary')->get();
 
@@ -89,7 +103,8 @@ class UsersController extends Controller
         'salaryType',
         'bankName',
         'accountName',
-        'accountNumber'
+        'accountNumber',
+        'address'
 
     ));
     }
@@ -106,8 +121,7 @@ class UsersController extends Controller
 
         $levelId = $user->level ? $user->level->id : null;
         
-        
-
+    
         $tasks = Task::all();
         $error = "task not found!";
         if ($tasks) {

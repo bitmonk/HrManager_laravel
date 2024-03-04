@@ -69,7 +69,6 @@
             </select>
         </div>
         
-
         
 <div class="form-group">
     <label for="salary">Salary:</label>
@@ -87,8 +86,11 @@
 
         <div class="form-group">
             <label for="contractDuration">Contract Duration:</label>
-            <input type="date" class="form-control" id="contractDuration" name="contractDuration" placeholder="Enter contract duration">
+            {{-- <input type="date" class="form-control" id="contractDuration" name="contractDuration" placeholder="Enter contract duration" value="{{$user->contract_duration}}">  --}}
+            <input type="date" class="form-control" id="contractDuration" name="contractDuration" placeholder="Enter contract duration" value="{{ $user->contract_duration ? \Carbon\Carbon::parse($user->contract_duration)->format('Y-m-d') : '' }}">
+
         </div>
+
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

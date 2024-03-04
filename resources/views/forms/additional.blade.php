@@ -5,8 +5,6 @@
             <h6 class="m-0 font-weight-bold text-primary">Additional Information</h6>
         </div>
         
-{{$address}}
-        
         <div class="card-body">
 
             <form method="POST" action="{{ route('additional.temp') }}" autocomplete="off">

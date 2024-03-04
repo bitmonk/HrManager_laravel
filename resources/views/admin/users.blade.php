@@ -1,5 +1,8 @@
 <div class="card shadow mb-4">
     <table class="table">
+
+        <thead>
+        <thead style="background-color: #4e73df; color: white;">
         <thead style="background-color: #4e73df; color: white;">
             <tr>
                 <th>ID</th>
@@ -19,11 +22,33 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->phone1 }}</td>
-                    <td>{{ $user->position->position ?? 'Unassigned' }}</td>
-                    <td>{{ $user->salary ?? 'Unassigned' }}</td>
-                    <td>{{ $user->salary->salary_type ?? 'N/A' }}</td>
+                    <td>{{ $user->position->position }}</td>
+                    <td>{{ $user->salary }}</td>
+                    {{-- <td>{{ $user->salary_type }}</td> --}}
+                    
+                    <td> 
+                    @if($user->salary_type == 1)
+                        Monthly
+                    @elseif($user->salary_type == 2)
+                        Weekly
+                    @elseif($user->salary_type == 3)
+                        Project-Based
+                    @else
+                        Unassigned
+                    @endif </td>
 
-                    <td>{{ $user->status }}</td>
+
+                    <td>
+                        @if($latestPunchIn->punch_in_time && !$latestPunchIn->punch_out_time)
+                            Active
+                        @elseif($latestPunchIn->punch_in_time&& $latestPunchIn->punch_out_time)
+                            Inactive
+                        @else
+                            Inactive
+                        @endif
+
+                    </td>
+
                     <td>
                         {{-- View button --}}
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">View</a>

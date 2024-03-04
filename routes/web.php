@@ -42,6 +42,9 @@ Route::put('/additionalTem', 'ProfileController@additionalTem')->name('additiona
 Route::put('/additionalPer', 'ProfileController@additionalPer')->name('additional.per');
 Route::put('/emergency', 'ProfileController@emergency')->name('emergency.update');
 
+
+// Route::get('/additionalTem', 'ProfileController@additionalTempAdd')->name('additional.add');
+
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/about', [AdminController::class, 'index'])->name('about');
 // Route::get('/about', [AdminController::class, 'leave'])->name('aboutleave');
