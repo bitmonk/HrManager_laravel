@@ -41,7 +41,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="card">
-                                                    <img src="{{asset($user->image)}}" class="card-img-top" alt="Not Found">
+                                                    <img src="{{asset($user->image)}}" class="card-img-top" alt="">
                                                     <div class="card-body">
                                                         <h5 class="card-title"><b>{{$user->name}} {{$user->last_name}}</b></h5>
                                                         <p class="card-text">Email: {{$user->email}}</p>
