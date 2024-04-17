@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\LeaveAdminController;
 use App\Http\Controllers\ActivityController;
-
+use App\Http\Controllers\HolidayNotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +58,7 @@ Route::get('/about', [AdminController::class, 'index'])->name('about');
 Route::get('/users/{id}', 'UsersController@show')->name('users.show'); 
 Route::get('/users/{id}/edit', 'UsersController@edit')->name('users.edit');
 Route::post('/users/{id}/update', 'UsersController@update')->name('users.update');
+// Route::get('/holiday-notification', [HolidayNotificationController::class, 'index'])->name('store.holiday');
 
 
 // for punchin and punchout

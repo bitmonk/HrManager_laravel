@@ -21,9 +21,10 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->phone1 }}</td>
-                    <td>{{ $user->position->position }}</td>
-                    <td>{{ $user->salary }}</td>
+                    <td>{{ $user->phone1 ?? 'N/A' }}</td>
+                    <td>{{ optional($user->position)->position ?? 'N/A' }}</td>
+                    <td>{{ $user->salary ?? 'N/A' }}</td>
+
                     {{-- <td>{{ $user->salary_type }}</td> --}}
                     
                     <td> 
@@ -39,15 +40,15 @@
 
 
                     <td>
-                        @if($latestPunchIn->punch_in_time && !$latestPunchIn->punch_out_time)
+                        @if(!empty($latestPunchIn->punch_in_time) && empty($latestPunchIn->punch_out_time))
                             Active
-                        @elseif($latestPunchIn->punch_in_time&& $latestPunchIn->punch_out_time)
+                        @elseif(!empty($latestPunchIn->punch_in_time) && !empty($latestPunchIn->punch_out_time))
                             Inactive
                         @else
                             Inactive
                         @endif
-
                     </td>
+                    
 
                     <td>
                         {{-- View button --}}

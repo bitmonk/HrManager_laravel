@@ -22,9 +22,9 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
-                    <td>{{ $user->phone1 }}</td>
-                    <td>{{ $user->position->position }}</td>
-                    <td>{{ $user->salary }}</td>
+                    <td>{{ $user->phone1 ?? 'N/A' }}</td>
+                    <td>{{ optional($user->position)->position ?? 'N/A' }}</td>
+                    <td>{{ $user->salary ?? 'N/A' }}</td>
                     <td> 
                         @if($user->salary_type == 1)
                             Monthly
