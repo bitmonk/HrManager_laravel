@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="tab4" data-toggle="tab" href="#form4">User Logs</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tab5" data-toggle="tab" href="#form5">Holiday</a>
+            </li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane fade show active" id="form1">
@@ -31,6 +34,9 @@
             </div>
             <div class="tab-pane fade" id="form4">
                 @include('admin.activity-log-admin') 
+            </div>
+            <div class="tab-pane fade" id="form5">
+                @include('forms.holidays') 
             </div>
 
         </div>
